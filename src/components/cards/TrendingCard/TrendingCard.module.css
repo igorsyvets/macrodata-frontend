@@ -1,0 +1,67 @@
+.chart {
+  padding: 16px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font: normal 16px 'IBM Plex Mono', monospace;
+}
+
+.value-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  opacity: 0;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.bar-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 12px;
+}
+
+.bar {
+  background-color: var(--color-main);
+  height: 24px;
+  opacity: 0;
+  border-radius: 2px;
+  transform-origin: left;
+  transform: scaleX(0);
+  animation: barEnter 0.5s ease forwards;
+  transition: width 0.3s ease;
+}
+
+.label {
+  min-width: 200px;
+  font-size: 14px;
+}
+
+.count {
+  min-width: 80px;
+  font-size: 14px;
+  color: #666;
+}
+
+@keyframes barEnter {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  to {
+    opacity: 0.8;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
