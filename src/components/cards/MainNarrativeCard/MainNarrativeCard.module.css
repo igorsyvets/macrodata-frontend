@@ -1,0 +1,37 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px 0 0;
+  font: normal 16px 'IBM Plex Mono', monospace;
+  text-align: left;
+}
+
+.theme {
+  font-size: 24px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.section h3 {
+  font: 500 12px 'IBM Plex Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: left;
+  color: var(--color-main);
+}
+
+.section-content {
+  font-size: 12px;
+}
+
+.stats {
+  border-top: var(--border-width) solid var(--color-main-border);
+  border-bottom: var(--border-width) solid var(--color-main-border);
+  font-size: 12px;
+  padding: 8px 0;
+}

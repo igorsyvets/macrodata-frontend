@@ -5,7 +5,14 @@ type Props = {}
 
 const TweetGetter = (props: Props) => {
   const twitterApiService = createTwitterApiService()
-  return <button>Get Tweets</button>
+
+  const getStream = async () => {
+    console.log('Getting stream')
+    const streamRules = await twitterApiService.getFilteredStream()
+    console.log(streamRules)
+  }
+
+  return <button onClick={getStream}>Get Tweets</button>
 }
 
 export default TweetGetter

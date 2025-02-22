@@ -1,13 +1,20 @@
 import './App.css'
+import Card from './components/cards/Card/Card'
+import MainNarrativeCard from './components/cards/MainNarrativeCard/MainNarrativeCard'
+import TrendingCard from './components/cards/TrendingCard/TrendingCard'
+import MainNavigation from './components/navigation/MainNavigation/MainNavigation'
 import TweetGetter from './components/TweetGetter/TweetGetter'
 import MistralButton from './components/MistralSummary/MistralButton'
 
 function App() {
   return (
-    <div className="App">123
-      <header className="App-header">Hello MDR</header>
-      <TweetGetter />
-      <MistralButton />
+
+    <div className="App">
+      <MainNavigation />
+      <main>
+        <MainNarrativeCard />
+        <TrendingCard />
+      </main>
     </div>
   )
 }
