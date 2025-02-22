@@ -1,6 +1,20 @@
-# Getting Started with Create React App (TypeScript)
+# Macrodata Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) using the TypeScript template.
+Frontend application for Macrodata project.
+
+## Getting Started
+
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. Run the development server:
+
+```bash
+npm start
+```
 
 ## Available Scripts
 
