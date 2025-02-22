@@ -3,6 +3,12 @@
 * {
   margin: 0;
   padding: 0;
+
+  /* Widths */
+  --border-width: 2px;
+
+  /* Colors */
+  --color-main: #00ddff;
   --color-main-border: #0d4a54;
 }
 
@@ -53,4 +59,5 @@
 main {
   display: flex;
   padding: 8px;
+  gap: 8px;
 }

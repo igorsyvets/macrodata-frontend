@@ -1,0 +1,19 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 0 16px 32px;
+  border: 2px solid var(--color-main-border);
+  border-radius: 4px;
+  flex: 2;
+}
+
+.header {
+  border-bottom: 2px solid var(--color-main-border);
+  font: 600 12px 'IBM Plex Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 16px 0;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+}
