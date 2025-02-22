@@ -16,11 +16,13 @@ const TrendingCard = (props: Props) => {
   const [animationKey, setAnimationKey] = useState(0)
 
   // Trigger animation on data changes
-  useEffect(() => {
-    setAnimationKey((prev) => prev + 1)
-  }, [data])
+  // useEffect(() => {
+  //   setAnimationKey((prev) => prev + 1)
+  // }, [data])
 
-  const sortedData = [...data].sort((a, b) => b.count - a.count)
+  const { themes } = data
+
+  const sortedData = data ? themes.sort((a, b) => b.count - a.count) : []
   const maxCount = Math.max(...sortedData.map((d) => d.count))
 
   return (
@@ -32,7 +34,7 @@ const TrendingCard = (props: Props) => {
           <div>Loading...</div>
         ) : (
           <div
-            onClick={() => refetch()}
+            // onClick={() => refetch()}
             style={{
               cursor: 'pointer',
               color: 'var(--primary-color)',
@@ -53,7 +55,7 @@ const TrendingCard = (props: Props) => {
             className={cx('value-container')}
             style={{ animationDelay: `${index * 50}ms` }}
           >
-            <span className={cx('label')}>{item.topic}</span>
+            <span className={cx('label')}>{item.name}</span>
             <div className={cx('bar-container')}>
               <div
                 className={cx('bar')}
