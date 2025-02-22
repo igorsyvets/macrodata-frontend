@@ -5,9 +5,11 @@ import TrendingCard from './components/cards/TrendingCard/TrendingCard'
 import MainNavigation from './components/navigation/MainNavigation/MainNavigation'
 import SecondaryNavigation from './components/navigation/SecondaryNavigation/SecondaryNavigation'
 import TweetGetter from './components/TweetGetter/TweetGetter'
+import MistralButton from './components/MistralSummary/MistralButton'
 
 function App() {
   return (
+
     <div className="App">
       <MainNavigation />
       <SecondaryNavigation />
