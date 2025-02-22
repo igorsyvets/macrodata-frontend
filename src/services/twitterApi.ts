@@ -57,15 +57,21 @@ export class TwitterApiService {
   async getUserTweets(userId: string, maxResults = 10): Promise<TwitterApiResponse<Tweet[]>> {
     return this.fetchWithAuth(`/2/users/${userId}/tweets?max_results=${maxResults}`)
   }
+
+  async getFilteredStream(): Promise<
+    TwitterApiResponse<{ data: { id: string; value: string }[] }>
+  > {
+    const options = { method: 'GET', headers: { Authorization: 'Bearer <token>' } }
+
+    return this.fetchWithAuth('/2/tweets/search/stream')
+  }
 }
 
 export const createTwitterApiService = () => {
   const config: TwitterApiConfig = {
     bearerToken: process.env.REACT_APP_TWITTER_BEARER_TOKEN as string,
-    apiBaseUrl: 'https://api.x.com/2/tweets/search/stream',
+    apiBaseUrl: 'https://api.x.com',
   }
-
-  console.log('config', config)
 
   return new TwitterApiService(config)
 }
