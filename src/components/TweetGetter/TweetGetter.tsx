@@ -1,12 +1,10 @@
 import React from 'react'
-import { TwitterApiService } from '../../services/twitterApi'
+import { createTwitterApiService, TwitterApiService } from '../../services/twitterApi'
 
 type Props = {}
 
 const TweetGetter = (props: Props) => {
-  const twitterApiService = createTwitterApiService({
-    bearer,
-  })
+  const twitterApiService = createTwitterApiService()
   return <button>Get Tweets</button>
 }
 

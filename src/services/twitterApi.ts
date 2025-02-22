@@ -1,3 +1,5 @@
+import { config } from 'process'
+
 interface TwitterApiConfig {
   bearerToken: string
   apiBaseUrl: string
@@ -59,9 +61,11 @@ export class TwitterApiService {
 
 export const createTwitterApiService = () => {
   const config: TwitterApiConfig = {
-    bearerToken: 'a',
-    apiBaseUrl: 'b',
+    bearerToken: process.env.REACT_APP_TWITTER_BEARER_TOKEN as string,
+    apiBaseUrl: 'https://api.x.com/2/tweets/search/stream',
   }
+
+  console.log('config', config)
 
   return new TwitterApiService(config)
 }
