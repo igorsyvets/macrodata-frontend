@@ -45,21 +45,25 @@ const useMainNarrative = () => {
     refetchInterval: Infinity,
     staleTime: Infinity,
   })
-
+  return {
+    ...request,
+    data: request.isLoading ? undefined : request.data,
+  }
   const placeholderData: TweetThemeAnalysis = {
     summary:'Loading real-time data...',
     summaryTitle: 'Loading real-time data...',
     themes: [{
       name: 'n/a',
-      count:1,
+      count:0,
       id: 1
     }]
   }
 
   return {
     ...request,
-    data: request.data ?? 
-    placeholderData,
+    // data: request.data ?? 
+    // placeholderData,
+    data: request.isLoading ? placeholderData : request.data,
   
 }
 }
@@ -101,51 +105,51 @@ const summarizeTweets = async () => {
     {
       role: 'system',
       content:
-        'You are an expert at analyzing social media sentiment and identifying common themes in tweets. When grouping tweets by theme, ensure each tweet ID is only included in the most relevant theme. Be precise in matching tweet content to themes.',
+        'You are an expert at analyzing current online discussions and news about Apple Inc. Search the internet for recent discussions and news about Apple Inc, and identify common themes from reliable sources.',
     },
     {
       role: 'user',
-      content: `Analyze these tweets about Apple products and initiatives and identify the top 5 most common themes.
-                First, provide a concise summary and a title for it of the overall narrative and key insights.
-                Then ,for each theme:
-                1. Only include tweet IDs that directly discuss that specific theme
-                2. Each tweet should only be counted in one theme (the most relevant one)
-                3. Verify that the count matches the number of tweet IDs provided.
+      content: `Search and analyze current online discussions about Apple Inc. and identify the top 5 most discussed themes.
+                First, provide a concise summary and title of the overall narrative and key insights from your findings.
+                Then, for each theme:
+                1. Only include sources that directly discuss that specific theme
+                2. Each source should only be counted in one theme (the most relevant one)
+                3. Focus on reliable and recent sources
+                4. Verify the accuracy of information
 
-                Return the response in this exact JSON forma do not include explanatory text:
+                Return the response in this exact JSON format:
                 {
-                    "summary": "A concise paragraph summarizing the overall narrative and key insights from all tweets",
-                    "summaryTitle": "A concise title summarizing the overall narrative and key insights from all tweets",
+                    "summary": "A concise paragraph summarizing the overall narrative and key insights from current discussions",
+                    "summaryTitle": "A concise title capturing the main narrative",
                     "themes": [
                         {
                             "name": "Theme name here",
-                            "count": number of tweets that exactly match this theme,
-                            "id": [array of tweet IDs that specifically discuss this theme]
+                            "count": number of reliable sources discussing this theme,
+                            "id": [array of source identifiers or URLs]
                         }
                     ]
                 }
                 Requirements:
-            - Include exactly 5 themes
-            - Sort by count in descending order
-            - Each tweet ID should appear in only one theme
-            - Ensure IDs match the actual content of the theme
-            - Count should equal the number of IDs provided.
-                Here are the chants to analyze: ${JSON.stringify(tweetBase.tweets)}`,
+                - Include exactly 5 themes
+                - Sort by relevance and discussion volume
+                - Focus on current discussions and developments
+                - Ensure themes are distinct and well-supported
+                - Verify information from multiple sources`,
     },
   ]
 
   try {
-    const response = await chat(messages, 'mistral-medium')
+    const response = await chat(messages, 'mistral-medium');
     try {
-      const analysis = JSON.parse(response) as TweetThemeAnalysis
-      return analysis
+      const analysis = JSON.parse(response) as TweetThemeAnalysis;
+      return analysis;
     } catch (error) {
-      console.error('Failed to parse JSON response:', response)
-      throw new Error('Failed to parse theme analysis response')
+      console.error('Failed to parse JSON response:', response);
+      throw new Error('Failed to parse theme analysis response');
     }
   } catch (error) {
-    console.error('Mistral API error:', error)
-    throw error
+    console.error('Mistral API error:', error);
+    throw error;
   }
 }
 

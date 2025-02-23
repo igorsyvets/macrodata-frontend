@@ -13,3 +13,14 @@ export interface TweetThemeAnalysis {
     id: number
   }[]
 }
+
+export type Tweet = {
+  id: string
+  text:string
+}
+
+export interface InitialTweets {
+  tweets: Tweet[]
+}
+
+
