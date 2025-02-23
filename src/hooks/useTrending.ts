@@ -2,7 +2,6 @@ import { useQuery } from '@tanstack/react-query'
 import { Topic, TweetThemeAnalysis } from '../types/types'
 import { useState } from 'react'
 import axios from 'axios'
-import tweetBase from '../data/TweetBase.json'
 import sampleTweets from '../data/sample tweets.json'
 
 interface MistralChatMessage {
@@ -29,17 +28,29 @@ interface MistralChatResponse {
 
 const baseURL = 'https://api.mistral.ai/v1'
 
-const useTranding = () => {
-  const request = useQuery<TweetThemeAnalysis>({
+type Props = {
+  posts: {
+    id: string
+    text: string
+  }[]
+}
+
+const useTranding = ({ posts }: Props) => {
+  const request = useQuery<Topic[]>({
     queryKey: ['trending'],
-    queryFn: summarizeTweets,
+    queryFn: async () => {
+      const response = await analyzeTopics({ posts, num_topics: 10, custom_stop_words: ['apple'] })
+      return response
+    },
     refetchInterval: Infinity,
     staleTime: Infinity,
   })
 
+  let data
+
   return {
     ...request,
-    data: request.data ?? { themes: [] },
+    data: request.data ?? [],
   }
 }
 
@@ -76,12 +87,13 @@ const chat = async (
 }
 
 const summarizeTweets = async () => {
+  console.log('summarizing tweets', sampleTweets.length)
   const messages: MistralChatMessage[] = [
-    {
-      role: 'system',
-      content:
-        'You are an expert at analyzing social media sentiment and identifying common themes in tweets. When grouping tweets by theme, ensure each tweet ID is only included in the most relevant theme. Be precise in matching tweet content to themes.',
-    },
+    // {
+    //   role: 'system',
+    //   content:
+    //     'You are an expert at analyzing social media sentiment and identifying common themes in tweets. When grouping tweets by theme, ensure each tweet ID is only included in the most relevant theme. Be precise in matching tweet content to themes.',
+    // },
     {
       role: 'user',
       content: promptV3,
@@ -106,7 +118,7 @@ const summarizeTweets = async () => {
 // const sampleData: Topic[] = [
 //   {
 //     id: '1',
-//     topic: 'iPhone 16e Launch',
+//     topic: 'iPhone SE Launch',
 //     count: 125000,
 //   },
 //   {
@@ -146,29 +158,29 @@ const summarizeTweets = async () => {
 //   },
 // ]
 
-const promptV1 = `Analyze these tweets about Apple products and initiatives and identify the top 5 most common themes.
-                For each theme:
-                1. Only include tweet IDs that directly discuss that specific theme
-                2. Each tweet should only be counted in one theme (the most relevant one)
-                3. Verify that the count matches the number of tweet IDs provided.
+// const promptV1 = `Analyze these tweets about Apple products and initiatives and identify the top 5 most common themes.
+//                 For each theme:
+//                 1. Only include tweet IDs that directly discuss that specific theme
+//                 2. Each tweet should only be counted in one theme (the most relevant one)
+//                 3. Verify that the count matches the number of tweet IDs provided.
 
-                Return the response in this exact JSON forma do not include explanatory text:
-                {
-                    "themes": [
-                        {
-                            "name": "Theme name here",
-                            "count": number of tweets that exactly match this theme,
-                            "id": [array of tweet IDs that specifically discuss this theme]
-                        }
-                    ]
-                }
-                Requirements:
-            - Include exactly 5 themes
-            - Sort by count in descending order
-            - Each tweet ID should appear in only one theme
-            - Ensure IDs match the actual content of the theme
-            - Count should equal the number of IDs provided.
-                Here are the chants to analyze: ${JSON.stringify(sampleTweets)}`
+//                 Return the response in this exact JSON forma do not include explanatory text:
+//                 {
+//                     "themes": [
+//                         {
+//                             "name": "Theme name here",
+//                             "count": number of tweets that exactly match this theme,
+//                             "id": [array of tweet IDs that specifically discuss this theme]
+//                         }
+//                     ]
+//                 }
+//                 Requirements:
+//             - Include exactly 5 themes
+//             - Sort by count in descending order
+//             - Each tweet ID should appear in only one theme
+//             - Ensure IDs match the actual content of the theme
+//             - Count should equal the number of IDs provided.
+//                 Here are the chants to analyze: ${JSON.stringify(sampleTweets)}`
 
 const promptV2 = `You are an expert at analyzing social media sentiment and identifying common themes in tweets. Your task is to process an array of tweets, group them by theme, and provide a summary of the themes in a specific JSON format.
 
@@ -191,17 +203,11 @@ const promptV2 = `You are an expert at analyzing social media sentiment and iden
                 5. Assign a unique ID number to each theme, starting from 1 and incrementing for each additional theme.
                 
                 6. Construct a JSON response with the following structure:
-                   {
-                     "themes": [
-                       {
-                         "name": "Theme Name",
-                         "count": number of tweets in this theme,
-                         "id": unique theme ID number
-                         "tweets": [array of tweet IDs that belong to this theme]
-                       },
-                       ...
-                     ]
-                   }
+                  [{
+                    id: string
+                    name: string
+                    postIds: string[]
+                  }]
                 
                 7. Ensure that your theming is precise and accurately reflects the content of the tweets. Avoid creating overly broad or vague themes.
                 
@@ -229,7 +235,7 @@ const promptV3 = `You are an expert at analyzing social media sentiment and iden
                 8. If you hit a limit of 10 topics, stop creating new topics and start broadening the existing ones.        
                 9. Repeat steps 1-8 for all tweets in the array.
                 10. For each topic, count the number of tweets that belong to it.
-                11. All tweets should be included assigned to a topic.
+                11. All tweets should be assigned to a topic.
                 12. Assign a unique ID number to each topic, starting from 1 and incrementing for each additional topic.                
                 13. Construct a JSON response with the following structure:
                    {
@@ -238,7 +244,7 @@ const promptV3 = `You are an expert at analyzing social media sentiment and iden
                          "name": "Theme Name",
                          "count": number of tweets in this theme,
                          "id": unique theme ID number
-                         "tweetsIDs": [array of tweet IDs that belong to this theme]
+                         "tweetIds": [array of tweet IDs that belong to this theme]
                        },
                        ...
                      ]
@@ -248,7 +254,7 @@ const promptV3 = `You are an expert at analyzing social media sentiment and iden
                 15. Do not include any explanations, comments, or additional text in your response. Your output should be valid JSON and nothing else.
                 
                 Remember, the goal is to provide a clear and accurate representation of the main themes present in the tweet set. Be as objective as possible in your analysis and grouping.
-                
+                ALL PROVIDED TWEETS SHOUD BE ASSIGNED TO A TOPIC!
                 `
 
 const promptV4 = `You are an expert at analyzing social media sentiment and identifying common themes in tweets. Your task is to process an array of tweets, group them by theme, and provide a summary of the themes in a specific JSON format.
@@ -294,3 +300,30 @@ const promptV4 = `You are an expert at analyzing social media sentiment and iden
                 That's because Open AI and Apple are company names and they provide more context.
                 
                 Remember, the goal is to provide a clear and accurate representation of the main themes present in the tweet set. Be as objective as possible in your analysis and grouping.`
+
+interface AnalyzeRequest {
+  posts: {
+    id: string
+    text: string
+  }[]
+  num_topics?: number
+  custom_stop_words?: string[]
+}
+
+const API_BASE_URL = 'http://localhost:8000'
+
+export const analyzeTopics = async (data: AnalyzeRequest): Promise<Topic[]> => {
+  try {
+    const response = await axios.post<Topic[]>(`${API_BASE_URL}/analyze`, data, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    return response.data
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      throw new Error(`Analysis failed: ${error.response?.data?.detail || error.message}`)
+    }
+    throw error
+  }
+}

@@ -8,7 +8,7 @@ import useMainNarrative from '../../../hooks/useMainNarrative'
 const cx = classNames.bind(css)
 
 type Props = {
-  trendingTweets: TweetThemeAnalysis
+  trendingTweets: Topic[]
 }
 
 const MainNarrativeCard = ({ trendingTweets }: Props) => {

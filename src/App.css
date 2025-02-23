@@ -10,6 +10,8 @@
   /* Colors */
   --color-main: #00ddff;
   --color-main-border: #0d4a54;
+
+  font-family: 'IBM Plex Mono', monospace;
 }
 
 .App {

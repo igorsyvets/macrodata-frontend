@@ -15,6 +15,11 @@
   animation: fadeIn 0.3s ease forwards;
 }
 
+.value-container:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+}
+
 .bar-container {
   display: flex;
   align-items: center;

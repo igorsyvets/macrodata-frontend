@@ -27,14 +27,14 @@ interface MistralChatResponse {
 }
 
 interface TweetThemeAnalysis {
-  summary: string;
-  summaryTitle: string;
-   themes: {
-     name: string
-     count: number
-     id: number
-   }[]
- }
+  summary: string
+  summaryTitle: string
+  themes: {
+    name: string
+    count: number
+    id: number
+  }[]
+}
 
 const baseURL = 'https://api.mistral.ai/v1'
 
@@ -49,23 +49,18 @@ const useMainNarrative = () => {
     ...request,
     data: request.isLoading ? undefined : request.data,
   }
-  const placeholderData: TweetThemeAnalysis = {
-    summary:'Loading real-time data...',
-    summaryTitle: 'Loading real-time data...',
-    themes: [{
-      name: 'n/a',
-      count:0,
-      id: 1
-    }]
-  }
-
-  return {
-    ...request,
-    // data: request.data ?? 
-    // placeholderData,
-    data: request.isLoading ? placeholderData : request.data,
-  
 }
+const placeholderData: TweetThemeAnalysis = {
+  summary: 'Loading real-time data...',
+  summaryTitle: 'Loading real-time data...',
+
+  themes: [
+    {
+      name: 'n/a',
+      count: 0,
+      id: 1,
+    },
+  ],
 }
 
 export default useMainNarrative
@@ -139,24 +134,24 @@ const summarizeTweets = async () => {
   ]
 
   try {
-    const response = await chat(messages, 'mistral-medium');
+    const response = await chat(messages, 'mistral-medium')
     try {
-      const analysis = JSON.parse(response) as TweetThemeAnalysis;
-      return analysis;
+      const analysis = JSON.parse(response) as TweetThemeAnalysis
+      return analysis
     } catch (error) {
-      console.error('Failed to parse JSON response:', response);
-      throw new Error('Failed to parse theme analysis response');
+      console.error('Failed to parse JSON response:', response)
+      throw new Error('Failed to parse theme analysis response')
     }
   } catch (error) {
-    console.error('Mistral API error:', error);
-    throw error;
+    console.error('Mistral API error:', error)
+    throw error
   }
 }
 
 // const sampleData: Topic[] = [
 //   {
 //     id: '1',
-//     topic: 'iPhone 16e Launch',
+//     topic: 'iPhone SE Launch',
 //     count: 125000,
 //   },
 //   {

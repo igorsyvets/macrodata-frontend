@@ -2,15 +2,16 @@ export type Generic = {}
 
 export interface Topic {
   id: string
-  topic: string
-  count: number
+  name: string
+  postIds: string[]
 }
 
 export interface TweetThemeAnalysis {
   themes: {
     name: string
     count: number
-    id: number
+    id: string
+    tweetIds: string[]
   }[]
 }
 

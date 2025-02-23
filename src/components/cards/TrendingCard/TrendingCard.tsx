@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { act, useEffect, useState } from 'react'
 import Card from '../Card/Card'
 import TweetGetter from '../../TweetGetter/TweetGetter'
 import { Topic, TweetThemeAnalysis } from '../../../types/types'
 import classNames from 'classnames/bind'
 import styles from './TrendingCard.module.css'
-import useTranding from '../../../hooks/useTrending'
 import { RefreshCcw } from 'react-feather'
+import sampleTweets from '../../../data/sample tweets.json'
 
 const cx = classNames.bind(styles)
 
 type Props = {
-  data: TweetThemeAnalysis
+  data: Topic[]
   isLoading: boolean
   isFetching: boolean
   refetch: () => void
@@ -18,26 +18,65 @@ type Props = {
 
 const TrendingCard = ({ data, isLoading, isFetching, refetch }: Props) => {
   const [animationKey, setAnimationKey] = useState(0)
+  const [activeTheme, setActiveTheme] = useState<string | null>(null)
+  const [loadingTime, setLoadingTime] = useState(0)
 
   // Trigger animation on data changes
   useEffect(() => {
     setAnimationKey((prev) => prev + 1)
   }, [data])
 
-  const { themes } = data
+  // Handle loading timer
+  useEffect(() => {
+    let interval: NodeJS.Timeout
+    if (isLoading || isFetching) {
+      setLoadingTime(0)
+      interval = setInterval(() => {
+        setLoadingTime((prev) => prev + 1)
+      }, 1000)
+    }
+    return () => {
+      if (interval) clearInterval(interval)
+    }
+  }, [isLoading, isFetching])
 
-  console.log('themes', themes)
+  const formatLoadingTime = (seconds: number) => {
+    const mins = Math.floor(seconds / 60)
+    const secs = seconds % 60
+    return `${mins}:${secs.toString().padStart(2, '0')}`
+  }
 
-  const sortedData = data ? themes.sort((a, b) => b.count - a.count) : []
-  const maxCount = Math.max(...sortedData.map((d) => d.count))
+  const themes = data || []
+
+  const sortedData = data ? themes.sort((a, b) => b.postIds.length - a.postIds.length) : []
+  const maxCount = Math.max(...sortedData.map((d) => d.postIds.length))
+
+  const totalPosts = themes.reduce((sum, theme) => sum + theme.postIds.length, 0)
+
+  const getTweetsByTheme = (themeId: string): { id: string; text: string }[] => {
+    const tweetIDs = themes.find((t) => t.id === themeId)?.postIds
+    if (!tweetIDs) return []
+    const tweets = tweetIDs
+      .map((tweetID) => {
+        const tweet = sampleTweets.find((t) => t.id === tweetID)
+        if (!tweet) console.error('tweet not found! boo! bad ai!', tweetID)
+        return tweet
+      })
+      .filter((t) => !!t) as {
+      id: string
+      text: string
+    }[]
+    console.log('tweets', tweets)
+    return tweets
+  }
 
   return (
     <Card
-      title="Trending"
+      title={`Trending (${totalPosts} posts)`}
       style={{ flex: 2 }}
       rightContent={
         isLoading || isFetching ? (
-          <div>Loading...</div>
+          <div>Loading... ({formatLoadingTime(loadingTime)})</div>
         ) : (
           <div
             onClick={() => refetch()}
@@ -54,27 +93,76 @@ const TrendingCard = ({ data, isLoading, isFetching, refetch }: Props) => {
         )
       }
     >
-      <div className={cx('chart')}>
-        {sortedData.map((item, index) => (
-          <div
-            key={`${animationKey}-${item.id}`}
-            className={cx('value-container')}
-            style={{ animationDelay: `${index * 50}ms` }}
-          >
-            <span className={cx('label')}>{item.name}</span>
-            <div className={cx('bar-container')}>
-              <div
-                className={cx('bar')}
-                style={{
-                  width: `${(item.count / maxCount) * 100}%`,
-                  animationDelay: `${index * 50}ms`,
-                }}
-              />
-              <span className={cx('count')}>{item.count.toLocaleString()}</span>
+      {!activeTheme ? (
+        <div className={cx('chart')}>
+          {sortedData.map((item, index) => (
+            <div
+              key={`${animationKey}-${item.id}`}
+              className={cx('value-container')}
+              style={{ animationDelay: `${index * 50}ms` }}
+              onClick={() => setActiveTheme(item.id)}
+            >
+              <span className={cx('label')}>{item.name}</span>
+              <div className={cx('bar-container')}>
+                <div
+                  className={cx('bar')}
+                  style={{
+                    width: `${(item.postIds.length / maxCount) * 100}%`,
+                    animationDelay: `${index * 50}ms`,
+                  }}
+                />
+                <span className={cx('count')}>{item.postIds.length}</span>
+              </div>
             </div>
+          ))}
+        </div>
+      ) : (
+        <div>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              marginBottom: '16px',
+              cursor: 'pointer',
+              fontFamily: 'IBM Plex Mono',
+            }}
+          >
+            <div
+              onClick={() => setActiveTheme(null)}
+              style={{
+                padding: '10px 0',
+              }}
+            >
+              &larr;
+            </div>
+            <span>
+              {themes.find((t) => t.id === activeTheme)?.name} (
+              {themes.find((t) => t.id === activeTheme)?.postIds.length})
+            </span>
           </div>
-        ))}
-      </div>
+          <div
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: '16px',
+            }}
+          >
+            {getTweetsByTheme(activeTheme).map((tweet) => (
+              <div
+                style={{
+                  border: '1px solid #ccc',
+                  borderRadius: '4px',
+                  padding: '8px',
+                  width: '200px',
+                }}
+              >
+                {tweet.text}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </Card>
   )
 }

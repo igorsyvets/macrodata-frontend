@@ -7,11 +7,17 @@ import SecondaryNavigation from './components/navigation/SecondaryNavigation/Sec
 import TweetGetter from './components/TweetGetter/TweetGetter'
 import MistralButton from './components/MistralSummary/MistralButton'
 import useTranding from './hooks/useTrending'
+import sampleTweets from './data/sample tweets.json'
 import useTweets from './hooks/useTweets'
 
 function App() {
-  const { data, isLoading, isFetching, refetch } = useTranding()
-  const { data: tweets, isLoading: tweetsLoading, isFetching: tweetsFetching, refetch: tweetsRefetch } = useTweets()
+  const { data, isLoading, isFetching, refetch } = useTranding({ posts: sampleTweets })
+  const {
+    data: tweets,
+    isLoading: tweetsLoading,
+    isFetching: tweetsFetching,
+    refetch: tweetsRefetch,
+  } = useTweets()
 
   console.log(tweets)
   return (
