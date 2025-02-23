@@ -20,6 +20,8 @@ function App() {
   } = useTweets()
 
   console.log(tweets)
+  console.log(tweets)
+
   return (
     <div className="App">
       <MainNavigation />

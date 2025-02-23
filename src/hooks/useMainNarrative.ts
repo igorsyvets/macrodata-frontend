@@ -51,6 +51,8 @@ const useMainNarrative = () => {
   }
 }
 
+console.log('heelo')
+
 const placeholderData: TweetThemeAnalysis = {
   summary: 'Loading real-time data...',
   summaryTitle: 'Loading real-time data...',
