@@ -50,6 +50,7 @@ const useMainNarrative = () => {
     data: request.isLoading ? undefined : request.data,
   }
 }
+
 const placeholderData: TweetThemeAnalysis = {
   summary: 'Loading real-time data...',
   summaryTitle: 'Loading real-time data...',
@@ -151,6 +152,7 @@ const summarizeTweets = async () => {
 // const sampleData: Topic[] = [
 //   {
 //     id: '1',
+//     topic: 'iPhone SE Launch',
 //     topic: 'iPhone SE Launch',
 //     count: 125000,
 //   },
