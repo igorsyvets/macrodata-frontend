@@ -23,7 +23,7 @@ interface MistralChatResponse {
   }
 }
 
-export interface TweetThemeAnalysis {
+interface TweetThemeAnalysis {
   themes: {
     name: string
     count: number

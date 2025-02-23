@@ -6,16 +6,18 @@ import MainNavigation from './components/navigation/MainNavigation/MainNavigatio
 import SecondaryNavigation from './components/navigation/SecondaryNavigation/SecondaryNavigation'
 import TweetGetter from './components/TweetGetter/TweetGetter'
 import MistralButton from './components/MistralSummary/MistralButton'
+import useTranding from './hooks/useTrending'
 
 function App() {
-  return (
+  const { data, isLoading, isFetching, refetch } = useTranding()
 
+  return (
     <div className="App">
       <MainNavigation />
       <SecondaryNavigation />
       <main>
-        <MainNarrativeCard />
-        <TrendingCard />
+        <MainNarrativeCard trendingTweets={data} />
+        <TrendingCard data={data} isLoading={isLoading} isFetching={isFetching} refetch={refetch} />
       </main>
     </div>
   )

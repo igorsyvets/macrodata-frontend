@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Card from '../Card/Card'
 import TweetGetter from '../../TweetGetter/TweetGetter'
-import { Topic } from '../../../types/types'
+import { Topic, TweetThemeAnalysis } from '../../../types/types'
 import classNames from 'classnames/bind'
 import styles from './TrendingCard.module.css'
 import useTranding from '../../../hooks/useTrending'
@@ -9,10 +9,14 @@ import { RefreshCcw } from 'react-feather'
 
 const cx = classNames.bind(styles)
 
-type Props = {}
+type Props = {
+  data: TweetThemeAnalysis
+  isLoading: boolean
+  isFetching: boolean
+  refetch: () => void
+}
 
 const TrendingCard = (props: Props) => {
-  const { data, isLoading, isFetching, refetch } = useTranding()
   const [animationKey, setAnimationKey] = useState(0)
 
   // Trigger animation on data changes

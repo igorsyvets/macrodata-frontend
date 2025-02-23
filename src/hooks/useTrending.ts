@@ -1,6 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import { Topic } from '../types/types'
-import { MistralService, TweetThemeAnalysis } from '../services/mistral.service'
+import { Topic, TweetThemeAnalysis } from '../types/types'
 import { useState } from 'react'
 import axios from 'axios'
 import tweetBase from '../data/TweetBase.json'
