@@ -1,697 +1,346 @@
-{
-  "tweets": [
-    {
-      "author_id": "8675309123",
-      "created_at": "Thu Feb 22 09:15:22 +0000 2025",
-      "id": "1760923847561234567",
-      "text": "Just got my hands on the iPhone 16e preview - the enhanced AI features are mind-blowing! Apple's really pushing the boundaries this time 🚀 #iPhone16e #AppleTech",
-      "username": "TechEnthusiast"
-    },
-    {
-      "author_id": "7654321098",
-      "created_at": "Thu Feb 22 09:20:15 +0000 2025",
-      "id": "1760924847561234568",
-      "text": "Disappointed that Apple's new Intelligence platform is just another walled garden. Why can't they play nice with other AI ecosystems? 🤦‍♂️ #AppleIntelligence",
-      "username": "OpenSourceAdvocate"
-    },
-    {
-      "author_id": "9876543210",
-      "created_at": "Thu Feb 22 09:25:33 +0000 2025",
-      "id": "1760925847561234569",
-      "text": "Proud of Apple for standing firm on their diversity programs despite pressure. Innovation comes from diverse perspectives! 👏 #AppleDiversity #InclusionMatters",
-      "username": "TechEquality"
-    },
-    {
-      "author_id": "2468101214",
-      "created_at": "Thu Feb 22 09:30:45 +0000 2025",
-      "id": "1760926847561234570",
-      "text": "iPhone 16e battery life is insane! 48 hours and still going strong. Apple finally listened to us! #iPhone16e #BatteryLife",
-      "username": "PowerUser"
-    },
-    {
-      "author_id": "1357924680",
-      "created_at": "Thu Feb 22 09:35:12 +0000 2025",
-      "id": "1760927847561234571",
-      "text": "Apple Intelligence's privacy features are concerning. Too much data collection happening behind the scenes. We need transparency! #Privacy #AppleIntelligence",
-      "username": "PrivacyFirst"
-    },
-    {
-      "author_id": "3141592653",
-      "created_at": "Thu Feb 22 09:40:28 +0000 2025",
-      "id": "1760928847561234572",
-      "text": "The camera system on iPhone 16e is a massive disappointment. Barely any improvement over 15 Pro. Save your money! 📱❌ #iPhone16e",
-      "username": "PhotoPro"
-    },
-    {
-      "author_id": "2718281828",
-      "created_at": "Thu Feb 22 09:45:55 +0000 2025",
-      "id": "1760929847561234573",
-      "text": "Just tried Apple Intelligence for coding. It's revolutionary! The code suggestions are incredibly context-aware. #AppleIntelligence #Coding",
-      "username": "DevLife"
-    },
-    {
-      "author_id": "1618033988",
-      "created_at": "Thu Feb 22 09:50:17 +0000 2025",
-      "id": "1760930847561234574",
-      "text": "Apple's commitment to diversity programs is hurting shareholder value. Time to focus on core business! #Apple #Business",
-      "username": "InvestorPro"
-    },
-    {
-      "author_id": "2236067977",
-      "created_at": "Thu Feb 22 09:55:40 +0000 2025",
-      "id": "1760931847561234575",
-      "text": "The new health features on iPhone 16e are game-changing for medical research. This is how tech should be used! #HealthTech #iPhone16e",
-      "username": "DigitalHealth"
-    },
-    {
-      "author_id": "1123581321",
-      "created_at": "Thu Feb 22 10:00:03 +0000 2025",
-      "id": "1760932847561234576",
-      "text": "Apple Intelligence's integration with HomeKit is buggy and unreliable. Not ready for prime time! 🏠❌ #AppleIntelligence #SmartHome",
-      "username": "SmartHomeGuru"
-    },
-    {
-      "author_id": "5551234567",
-      "created_at": "Thu Feb 22 10:05:30 +0000 2025",
-      "id": "1760933847561234577",
-      "text": "The environmental impact of annual iPhone releases is concerning. Apple needs to focus more on sustainability than profits. iPhone 16e is just more e-waste 🌍😔 #Sustainability",
-      "username": "EcoTechie"
-    },
-    {
-      "author_id": "6661234567",
-      "created_at": "Thu Feb 22 10:10:15 +0000 2025",
-      "id": "1760934847561234578",
-      "text": "Apple Intelligence's language translation is next level! Real-time conversations in 95 languages with near-perfect accuracy 🌎 #AppleIntelligence #Innovation",
-      "username": "GlobalCitizen"
-    },
-    {
-      "author_id": "7771234567",
-      "created_at": "Thu Feb 22 10:15:45 +0000 2025",
-      "id": "1760935847561234579",
-      "text": "Diversity isn't just about hiring - it's about innovation. Apple gets this. Their diverse teams are creating better products for everyone #AppleDiversity",
-      "username": "TechCulture"
-    },
-    {
-      "author_id": "8881234567",
-      "created_at": "Thu Feb 22 10:20:22 +0000 2025",
-      "id": "1760936847561234580",
-      "text": "iPhone 16e's price point is ridiculous. $1500 for marginal improvements? Apple's lost touch with reality 💸 #iPhone16e #Overpriced",
-      "username": "ValueSeeker"
-    },
-    {
-      "author_id": "9991234567",
-      "created_at": "Thu Feb 22 10:25:18 +0000 2025",
-      "id": "1760937847561234581",
-      "text": "Apple Intelligence just helped me debug a complex issue in seconds. This is the future of development! 🚀 #AppleIntelligence #Programming",
-      "username": "CodeMaster"
-    },
-    {
-      "author_id": "1112234567",
-      "created_at": "Thu Feb 22 10:30:40 +0000 2025",
-      "id": "1760938847561234582",
-      "text": "The new gesture controls on iPhone 16e are confusing and unintuitive. Sometimes simpler is better! #UX #iPhone16e",
-      "username": "UXDesigner"
-    },
-    {
-      "author_id": "2223234567",
-      "created_at": "Thu Feb 22 10:35:55 +0000 2025",
-      "id": "1760939847561234583",
-      "text": "Kudos to Apple for not backing down on diversity initiatives despite pressure. This is what leadership looks like! 👏 #CorporateResponsibility",
-      "username": "TechEquity"
-    },
-    {
-      "author_id": "3334234567",
-      "created_at": "Thu Feb 22 10:40:12 +0000 2025",
-      "id": "1760940847561234584",
-      "text": "Apple Intelligence's energy consumption is concerning. These AI models are power hungry! We need more green computing 🌱 #Sustainability",
-      "username": "GreenTech"
-    },
-    {
-      "author_id": "4445234567",
-      "created_at": "Thu Feb 22 10:45:30 +0000 2025",
-      "id": "1760941847561234585",
-      "text": "The iPhone 16e's AR capabilities are mind-blowing! Virtual try-on for clothes actually works now 🛍️ #AugmentedReality #iPhone16e",
-      "username": "FutureRetail"
-    },
-    {
-      "author_id": "5556234567",
-      "created_at": "Thu Feb 22 10:50:25 +0000 2025",
-      "id": "1760942847561234586",
-      "text": "Market data shows diverse companies perform better. Apple's stance on diversity programs is just good business sense 📈 #BusinessStrategy",
-      "username": "MarketAnalyst"
-    },
-    {
-      "author_id": "6667234567",
-      "created_at": "Thu Feb 22 10:55:18 +0000 2025",
-      "id": "1760943847561234587",
-      "text": "Apple Intelligence's emotional recognition feature is creepy. Not everything needs AI! 🤖 #Privacy #Ethics",
-      "username": "DigitalEthics"
-    },
-    {
-      "author_id": "7778234567",
-      "created_at": "Thu Feb 22 11:00:42 +0000 2025",
-      "id": "1760944847561234588",
-      "text": "iPhone 16e's satellite connectivity saved my life during a hiking emergency. Worth every penny! 🏔️ #Safety #iPhone16e",
-      "username": "AdventureSeeker"
-    },
-    {
-      "author_id": "8889234567",
-      "created_at": "Thu Feb 22 11:05:33 +0000 2025",
-      "id": "1760945847561234589",
-      "text": "Apple's diversity programs are creating opportunities for underrepresented developers. My team is thriving! 💪 #Inclusion #TechDiversity",
-      "username": "DevTeamLead"
-    },
-    {
-      "author_id": "9990234567",
-      "created_at": "Thu Feb 22 11:10:20 +0000 2025",
-      "id": "1760946847561234590",
-      "text": "Apple Intelligence's creator tools are revolutionizing digital art. The possibilities are endless! 🎨 #DigitalArt #AI",
-      "username": "DigitalArtist"
-    },
-    {
-      "author_id": "1113234567",
-      "created_at": "Thu Feb 22 11:15:45 +0000 2025",
-      "id": "1760947847561234591",
-      "text": "iPhone 16e's 'all-day' battery claim is a joke. Mine barely lasts 6 hours with normal use 🔋 #BatteryLife #Disappointed",
-      "username": "PowerUser2"
-    },
-    {
-      "author_id": "2224234567",
-      "created_at": "Thu Feb 22 11:20:30 +0000 2025",
-      "id": "1760948847561234592",
-      "text": "Apple's diversity programs are pure PR. Show us the real numbers and pay transparency! 📊 #Accountability",
-      "username": "TechWatchdog"
-    },
-    {
-      "author_id": "3335234567",
-      "created_at": "Thu Feb 22 11:25:15 +0000 2025",
-      "id": "1760949847561234593",
-      "text": "Apple Intelligence's medical diagnosis accuracy is remarkable. This could revolutionize healthcare access! 🏥 #HealthTech",
-      "username": "DigitalDoc"
-    },
-    {
-      "author_id": "4446234567",
-      "created_at": "Thu Feb 22 11:30:22 +0000 2025",
-      "id": "1760950847561234594",
-      "text": "The iPhone 16e's design is so uninspired. Looks exactly like last year's model 🥱 #Design #Boring",
-      "username": "DesignCritic"
-    },
-    {
-      "author_id": "5557234567",
-      "created_at": "Thu Feb 22 11:35:40 +0000 2025",
-      "id": "1760951847561234595",
-      "text": "Love seeing how Apple's diversity programs are inspiring other tech companies to follow suit. This is how change happens! 🌟 #TechInclusion",
-      "username": "IndustryInsider"
-    },
-    {
-      "author_id": "6668234567",
-      "created_at": "Thu Feb 22 11:40:15 +0000 2025",
-      "id": "1760952847561234596",
-      "text": "The iPhone 16e's new haptic keyboard is a game-changer for accessibility. Finally typing feels natural! 👏 #Accessibility #iPhone16e",
-      "username": "AccessibilityAdvocate"
-    },
-    {
-      "author_id": "7779234567",
-      "created_at": "Thu Feb 22 11:45:30 +0000 2025",
-      "id": "1760953847561234597",
-      "text": "Apple Intelligence's content moderation is too aggressive. False positives everywhere! Fix this please 😤 #AppleIntelligence",
-      "username": "ContentCreator"
-    },
-    {
-      "author_id": "8890234567",
-      "created_at": "Thu Feb 22 11:50:22 +0000 2025",
-      "id": "1760954847561234598",
-      "text": "Just attended an Apple-sponsored coding bootcamp for minorities. These diversity programs create real opportunities! 💻 #TechDiversity",
-      "username": "NewDeveloper"
-    },
-    {
-      "author_id": "9991234567",
-      "created_at": "Thu Feb 22 11:55:18 +0000 2025",
-      "id": "1760955847561234599",
-      "text": "iPhone 16e's thermal management is terrible. Phone gets too hot during basic tasks. Major design flaw! 🔥 #ThermalIssues",
-      "username": "TechReviewer"
-    },
-    {
-      "author_id": "1114234567",
-      "created_at": "Thu Feb 22 12:00:45 +0000 2025",
-      "id": "1760956847561234600",
-      "text": "Apple Intelligence's video editing capabilities are unreal. Created a whole movie trailer in minutes! 🎬 #VideoEditing #AI",
-      "username": "FilmMaker"
-    },
-    {
-      "author_id": "2225234567",
-      "created_at": "Thu Feb 22 12:05:30 +0000 2025",
-      "id": "1760957847561234601",
-      "text": "The diversity programs' impact on innovation is clear in the new iOS accessibility features. This is inclusion done right! ♿️ #Innovation",
-      "username": "TechForAll"
-    },
-    {
-      "author_id": "3336234567",
-      "created_at": "Thu Feb 22 12:10:25 +0000 2025",
-      "id": "1760958847561234602",
-      "text": "iPhone 16e's always-on display drains battery like crazy. Had to disable it completely 🔋 #BatteryDrain #iPhone16e",
-      "username": "BatteryLife"
-    },
-    {
-      "author_id": "4447234567",
-      "created_at": "Thu Feb 22 12:15:20 +0000 2025",
-      "id": "1760959847561234603",
-      "text": "Apple Intelligence mistranslated an important business document. Cost us a client! Not ready for professional use 😡 #AIFail",
-      "username": "BusinessPro"
-    },
-    {
-      "author_id": "5558234567",
-      "created_at": "Thu Feb 22 12:20:15 +0000 2025",
-      "id": "1760960847561234604",
-      "text": "Amazing to see Apple's diversity programs expanding to include neurodivergent individuals. Tech should be for everyone! 🧠 #Inclusion",
-      "username": "NeuroDiversity"
-    },
-    {
-      "author_id": "6669234567",
-      "created_at": "Thu Feb 22 12:25:10 +0000 2025",
-      "id": "1760961847561234605",
-      "text": "iPhone 16e's new spatial video capture is incredible! Virtual memories feel so real now 🎥 #SpatialVideo #VR",
-      "username": "VREnthusiast"
-    },
-    {
-      "author_id": "7780234567",
-      "created_at": "Thu Feb 22 12:30:05 +0000 2025",
-      "id": "1760962847561234606",
-      "text": "Apple Intelligence keeps suggesting biased solutions. AI ethics team needs to do better! ⚖️ #AIEthics #Bias",
-      "username": "EthicsInTech"
-    },
-    {
-      "author_id": "8891234567",
-      "created_at": "Thu Feb 22 12:35:00 +0000 2025",
-      "id": "1760963847561234607",
-      "text": "The new iPhone 16e automatically detects car crashes and calls emergency services. Already saved lives! 🚗 #Safety",
-      "username": "SafetyFirst"
-    },
-    {
-      "author_id": "9992234567",
-      "created_at": "Thu Feb 22 12:40:55 +0000 2025",
-      "id": "1760964847561234608",
-      "text": "Apple's diversity programs are great, but what about accessibility? Need more focus there! ♿️ #Accessibility",
-      "username": "InclusionAdvocate"
-    },
-    {
-      "author_id": "1115234567",
-      "created_at": "Thu Feb 22 12:45:50 +0000 2025",
-      "id": "1760965847561234609",
-      "text": "Apple Intelligence's music composition tools are revolutionizing how I create. Pure magic! 🎵 #AIMusic #Creativity",
-      "username": "MusicProducer"
-    },
-    {
-      "author_id": "2226234567",
-      "created_at": "Thu Feb 22 12:50:45 +0000 2025",
-      "id": "1760966847561234610",
-      "text": "iPhone 16e's 5G performance is worse than 15 Pro. How is this possible? 📶 #NetworkIssues #Downgrade",
-      "username": "NetworkEngineer"
-    },
-    {
-      "author_id": "3337234567",
-      "created_at": "Thu Feb 22 12:55:40 +0000 2025",
-      "id": "1760967847561234611",
-      "text": "Proud to be part of Apple's diversity mentorship program. Making real change in tech! 🌈 #Mentorship #TechDiversity",
-      "username": "TechMentor"
-    },
-    {
-      "author_id": "4448234567",
-      "created_at": "Thu Feb 22 13:00:35 +0000 2025",
-      "id": "1760968847561234612",
-      "text": "Apple Intelligence helped optimize our supply chain. 30% cost reduction! 📊 #BusinessAI #Optimization",
-      "username": "SupplyChainPro"
-    },
-    {
-      "author_id": "5559234567",
-      "created_at": "Thu Feb 22 13:05:30 +0000 2025",
-      "id": "1760969847561234613",
-      "text": "iPhone 16e's new security features are overkill. Takes forever to unlock my own phone! 🔒 #UX #Frustrating",
-      "username": "SecurityExpert"
-    },
-    {
-      "author_id": "6670234567",
-      "created_at": "Thu Feb 22 13:10:25 +0000 2025",
-      "id": "1760970847561234614",
-      "text": "The representation in Apple's latest ad campaign feels forced. We need authentic diversity, not tokenism! 🎭 #Authenticity",
-      "username": "MarketingPro"
-    },
-    {
-      "author_id": "7781234567",
-      "created_at": "Thu Feb 22 13:15:20 +0000 2025",
-      "id": "1760971847561234615",
-      "text": "Apple Intelligence's real-time voice cloning is concerning. Think of the potential misuse! 🎤 #Security #Ethics",
-      "username": "SecurityResearcher"
-    },
-    {
-      "author_id": "8892234567",
-      "created_at": "Thu Feb 22 13:20:15 +0000 2025",
-      "id": "1760972847561234616",
-      "text": "Apple Intelligence's AI art generator respects artist copyright. Finally an ethical approach to AI art! 🎨 #AIArt #Ethics",
-      "username": "DigitalArtist2"
-    },
-    {
-      "author_id": "9993234567",
-      "created_at": "Thu Feb 22 13:25:10 +0000 2025",
-      "id": "1760973847561234617",
-      "text": "iPhone 16e screen cracked after a 2-foot drop. So much for 'most durable glass ever' 💔 #Quality #Disappointed",
-      "username": "ConsumerReport"
-    },
-    {
-      "author_id": "1116234567",
-      "created_at": "Thu Feb 22 13:30:05 +0000 2025",
-      "id": "1760974847561234618",
-      "text": "Apple's diversity program helped me transition from military to tech. Veterans need these opportunities! 🎖️ #VeteransInTech",
-      "username": "TechVeteran"
-    },
-    {
-      "author_id": "2227234567",
-      "created_at": "Thu Feb 22 13:35:00 +0000 2025",
-      "id": "1760975847561234619",
-      "text": "Apple Intelligence's quantum computing simulations are groundbreaking. Future of research! 🔬 #QuantumComputing",
-      "username": "QuantumPhysicist"
-    },
-    {
-      "author_id": "3338234567",
-      "created_at": "Thu Feb 22 13:40:55 +0000 2025",
-      "id": "1760976847561234620",
-      "text": "iPhone 16e's new health sensors are unreliable. Got three different heart rate readings in 5 minutes! ❤️ #HealthTech",
-      "username": "HealthMonitor"
-    },
-    {
-      "author_id": "4449234567",
-      "created_at": "Thu Feb 22 13:45:50 +0000 2025",
-      "id": "1760977847561234621",
-      "text": "The representation in Apple's engineering teams is improving. Seeing more women in senior roles! 👩‍💻 #WomenInTech",
-      "username": "TechLeader"
-    },
-    {
-      "author_id": "5560234567",
-      "created_at": "Thu Feb 22 13:50:45 +0000 2025",
-      "id": "1760978847561234622",
-      "text": "Apple Intelligence mistook my dog for a cat in Photos. Basic AI still needs work! 🐕 #AIFail #MachineLearning",
-      "username": "PetLover"
-    },
-    {
-      "author_id": "6671234567",
-      "created_at": "Thu Feb 22 13:55:40 +0000 2025",
-      "id": "1760979847561234623",
-      "text": "iPhone 16e's satellite connectivity saved our research team in Antarctica! Worth every penny 🛰️ #EmergencySOS",
-      "username": "PolarResearcher"
-    },
-    {
-      "author_id": "7782234567",
-      "created_at": "Thu Feb 22 14:00:35 +0000 2025",
-      "id": "1760980847561234624",
-      "text": "Apple's diversity initiatives helped my startup get funding. Real impact on entrepreneurship! 💰 #StartupLife",
-      "username": "TechFounder"
-    },
-    {
-      "author_id": "8893234567",
-      "created_at": "Thu Feb 22 14:05:30 +0000 2025",
-      "id": "1760981847561234625",
-      "text": "iPhone 16e's ProMotion display has terrible ghosting issues. Not good enough for gaming! 🎮 #Gaming #Display",
-      "username": "ProGamer"
-    },
-    {
-      "author_id": "9994234567",
-      "created_at": "Thu Feb 22 14:10:25 +0000 2025",
-      "id": "1760982847561234626",
-      "text": "Apple Intelligence's code refactoring saved us months of work. This is the future of development! 💻 #CodeQuality",
-      "username": "SeniorDev"
-    },
-    {
-      "author_id": "1117234567",
-      "created_at": "Thu Feb 22 14:15:20 +0000 2025",
-      "id": "1760983847561234627",
-      "text": "The new Apple campus's accessibility features are amazing. Finally feeling fully included! ♿️ #WorkplaceInclusion",
-      "username": "TechEmployee"
-    },
-    {
-      "author_id": "2228234567",
-      "created_at": "Thu Feb 22 14:20:15 +0000 2025",
-      "id": "1760984847561234628",
-      "text": "iPhone 16e's camera AI over-processes faces. Everyone looks like a plastic doll! 📸 #Photography",
-      "username": "PhotoPro2"
-    },
-    {
-      "author_id": "3339234567",
-      "created_at": "Thu Feb 22 14:25:10 +0000 2025",
-      "id": "1760985847561234629",
-      "text": "Apple Intelligence helped detect early signs of diabetes. Technology saving lives! 🏥 #HealthInnovation",
-      "username": "DigitalHealth2"
-    },
-    {
-      "author_id": "4450234567",
-      "created_at": "Thu Feb 22 14:30:05 +0000 2025",
-      "id": "1760986847561234630",
-      "text": "Still waiting for real progress in Apple's diversity numbers. Pretty presentations aren't enough! 📊 #Transparency",
-      "username": "DataAnalyst"
-    },
-    {
-      "author_id": "5561234567",
-      "created_at": "Thu Feb 22 14:35:00 +0000 2025",
-      "id": "1760987847561234631",
-      "text": "iPhone 16e's emergency satellite feature failed during our mountain rescue operation. Dangerous oversight! 🏔️ #Safety",
-      "username": "RescueTeam"
-    },
-    {
-      "author_id": "6672234567",
-      "created_at": "Thu Feb 22 14:40:55 +0000 2025",
-      "id": "1760988847561234632",
-      "text": "Apple Intelligence's environmental impact assessment tools are revolutionizing sustainability planning 🌱 #GreenTech",
-      "username": "Sustainability"
-    },
-    {
-      "author_id": "7783234567",
-      "created_at": "Thu Feb 22 14:45:50 +0000 2025",
-      "id": "1760989847561234633",
-      "text": "The lack of age diversity in Apple's programs is concerning. Tech isn't just for young people! 👴 #AgeInclusion",
-      "username": "SeniorTech"
-    },
-    {
-      "author_id": "8894234567",
-      "created_at": "Thu Feb 22 14:50:45 +0000 2025",
-      "id": "1760990847561234634",
-      "text": "iPhone 16e's AI photo editing is incredible. Finally nailing those perfect shots effortlessly! 📱 #Photography",
-      "username": "MobilePhotographer"
-    },
-    {
-      "author_id": "9995234567",
-      "created_at": "Thu Feb 22 14:55:40 +0000 2025",
-      "id": "1760991847561234635",
-      "text": "Apple Intelligence's predictive maintenance saved our factory millions. Industry 4.0 is here! 🏭 #Manufacturing",
-      "username": "FactoryTech"
-    },
-    {
-      "author_id": "1118234567",
-      "created_at": "Thu Feb 22 15:00:35 +0000 2025",
-      "id": "1760992847561234636",
-      "text": "Loving the indigenous language support in iOS 18! Apple's diversity efforts reaching software finally 🌏 #Inclusion",
-      "username": "LanguageTeacher"
-    },
-    {
-      "author_id": "2229234567",
-      "created_at": "Thu Feb 22 15:05:30 +0000 2025",
-      "id": "1760993847561234637",
-      "text": "iPhone 16e's new gaming features are just marketing hype. Still can't match Android performance 🎮 #Gaming",
-      "username": "MobileGamer"
-    },
-    {
-      "author_id": "3340234567",
-      "created_at": "Thu Feb 22 15:10:25 +0000 2025",
-      "id": "1760994847561234638",
-      "text": "Apple Intelligence's scientific paper analysis is a game-changer for research! 🔬 #ResearchTools #Academia",
-      "username": "Researcher"
-    },
-    {
-      "author_id": "4451234567",
-      "created_at": "Thu Feb 22 15:15:20 +0000 2025",
-      "id": "1760995847561234639",
-      "text": "The diversity program's mental health support is making tech more sustainable for everyone 🧠 #MentalHealth",
-      "username": "WellnessTech"
-    },
-    {
-      "author_id": "5562234567",
-      "created_at": "Thu Feb 22 15:20:15 +0000 2025",
-      "id": "1760996847561234640",
-      "text": "iPhone 16e's repairability score is terrible. Another step back for right to repair! 🔧 #RightToRepair",
-      "username": "RepairAdvocate"
-    },
-    {
-      "author_id": "6673234567",
-      "created_at": "Thu Feb 22 15:25:10 +0000 2025",
-      "id": "1760997847561234641",
-      "text": "Apple Intelligence's weather predictions outperform traditional models. Science meets AI! 🌤️ #WeatherTech",
-      "username": "Meteorologist"
-    },
-    {
-      "author_id": "7784234567",
-      "created_at": "Thu Feb 22 15:30:05 +0000 2025",
-      "id": "1760998847561234642",
-      "text": "Not impressed with Apple's diversity stats in upper management. Still a long way to go! 📊 #Leadership",
-      "username": "CorporateWatch"
-    },
-    {
-      "author_id": "8895234567",
-      "created_at": "Thu Feb 22 15:35:00 +0000 2025",
-      "id": "1760999847561234643",
-      "text": "iPhone 16e's quantum encryption makes business calls finally feel secure! 🔒 #Security #Privacy",
-      "username": "CyberSecurity"
-    },
-    {
-      "author_id": "9996234567",
-      "created_at": "Thu Feb 22 15:40:55 +0000 2025",
-      "id": "1761000847561234644",
-      "text": "Apple Intelligence's farming optimization increased our yield by 40%! Future of agriculture 🌾 #AgTech",
-      "username": "ModernFarmer"
-    },
-    {
-      "author_id": "1119234567",
-      "created_at": "Thu Feb 22 15:45:50 +0000 2025",
-      "id": "1761001847561234645",
-      "text": "The new blind-accessible features in iOS are revolutionary. Keep pushing boundaries! 👨‍🦯 #Accessibility",
-      "username": "AccessTech"
-    },
-    {
-      "author_id": "2230234567",
-      "created_at": "Thu Feb 22 15:50:45 +0000 2025",
-      "id": "1761002847561234646",
-      "text": "iPhone 16e's Focus filters are too aggressive - missing important notifications! 🔕 #ProductivityFail #iPhone16e",
-      "username": "Entrepreneur"
-    },
-    {
-      "author_id": "3341234567",
-      "created_at": "Thu Feb 22 15:55:40 +0000 2025",
-      "id": "1761003847561234647",
-      "text": "Apple Intelligence just composed a custom lullaby for my baby. The future is here! 🎵 #AIMusic #Parenting",
-      "username": "TechParent"
-    },
-    {
-      "author_id": "4452234567",
-      "created_at": "Thu Feb 22 16:00:35 +0000 2025",
-      "id": "1761004847561234648",
-      "text": "Great seeing Apple's diversity programs focusing on rural tech education. Bridging the digital divide! 🌾 #RuralTech",
-      "username": "RuralDev"
-    },
-    {
-      "author_id": "5563234567",
-      "created_at": "Thu Feb 22 16:05:30 +0000 2025",
-      "id": "1761005847561234649",
-      "text": "iPhone 16e's new macro camera is worse than the 15 Pro. How did they mess this up? 📸 #Photography",
-      "username": "MacroShooter"
-    },
-    {
-      "author_id": "6674234567",
-      "created_at": "Thu Feb 22 16:10:25 +0000 2025",
-      "id": "1761006847561234650",
-      "text": "Apple Intelligence's financial modeling saved our startup from a bad investment. Thanks AI! 💹 #FinTech",
-      "username": "StartupCFO"
-    },
-    {
-      "author_id": "7785234567",
-      "created_at": "Thu Feb 22 16:15:20 +0000 2025",
-      "id": "1761007847561234651",
-      "text": "The braille support in iOS 18 is revolutionary! Apple's commitment to accessibility shows 👏 #Accessibility",
-      "username": "BrailleTeacher"
-    },
-    {
-      "author_id": "8896234567",
-      "created_at": "Thu Feb 22 16:20:15 +0000 2025",
-      "id": "1761008847561234652",
-      "text": "iPhone 16e keeps freezing during video calls. Basic functionality failing! 😡 #QualityControl",
-      "username": "RemoteWorker"
-    },
-    {
-      "author_id": "9997234567",
-      "created_at": "Thu Feb 22 16:25:10 +0000 2025",
-      "id": "1761009847561234653",
-      "text": "Apple Intelligence's urban planning tools are helping cities reduce traffic by 25%! 🌆 #SmartCities",
-      "username": "UrbanPlanner"
-    },
-    {
-      "author_id": "1120234567",
-      "created_at": "Thu Feb 22 16:30:05 +0000 2025",
-      "id": "1761010847561234654",
-      "text": "Their diversity program got me back into tech after 15 years. It's never too late to switch careers! 💪 #CareerChange",
-      "username": "CareerSwitcher"
-    },
-    {
-      "author_id": "2231234567",
-      "created_at": "Thu Feb 22 16:35:00 +0000 2025",
-      "id": "1761011847561234655",
-      "text": "iPhone 16e's emergency features failed during a forest fire. This needs immediate attention! 🔥 #Safety #Emergency",
-      "username": "FirefighterTech"
-    },
-    {
-      "author_id": "3342234567",
-      "created_at": "Thu Feb 22 16:40:55 +0000 2025",
-      "id": "1761012847561234656",
-      "text": "Apple Intelligence perfectly transcribed our 3-hour medical conference. Game-changer for documentation! 📝 #Healthcare",
-      "username": "MedConference"
-    },
-    {
-      "author_id": "4453234567",
-      "created_at": "Thu Feb 22 16:45:50 +0000 2025",
-      "id": "1761013847561234657",
-      "text": "The diversity initiatives helped my daughter see herself in tech. Representation matters! 👧 #WomenInSTEM",
-      "username": "TechMom"
-    },
-    {
-      "author_id": "5564234567",
-      "created_at": "Thu Feb 22 16:50:45 +0000 2025",
-      "id": "1761014847561234658",
-      "text": "iPhone 16e's car crash detection had false positives on my roller coaster ride! 🎢 #FalseAlarm",
-      "username": "ThemeParkFan"
-    },
-    {
-      "author_id": "6675234567",
-      "created_at": "Thu Feb 22 16:55:40 +0000 2025",
-      "id": "1761015847561234659",
-      "text": "Apple Intelligence helped optimize our solar farm output by 35%! Clean energy gets smarter 🌞 #RenewableEnergy",
-      "username": "SolarEngineer"
-    },
-    {
-      "author_id": "7786234567",
-      "created_at": "Thu Feb 22 17:00:35 +0000 2025",
-      "id": "1761016847561234660",
-      "text": "Props to Apple for supporting LGBTQ+ developers in tech. Making real progress! 🌈 #PrideInTech",
-      "username": "QueerCoder"
-    },
-    {
-      "author_id": "8897234567",
-      "created_at": "Thu Feb 22 17:05:30 +0000 2025",
-      "id": "1761017847561234661",
-      "text": "iPhone 16e couldn't handle our Arctic expedition temperatures. Shut down at -20°C ❄️ #ColdWeather",
-      "username": "PolarExplorer"
-    },
-    {
-      "author_id": "9998234567",
-      "created_at": "Thu Feb 22 17:10:25 +0000 2025",
-      "id": "1761018847561234662",
-      "text": "Apple Intelligence's legal document analysis caught critical contract issues! Saving lawyer time ⚖️ #LegalTech",
-      "username": "TechLawyer"
-    },
-    {
-      "author_id": "1121234567",
-      "created_at": "Thu Feb 22 17:15:20 +0000 2025",
-      "id": "1761019847561234663",
-      "text": "The new cultural sensitivity training in Apple's diversity program is eye-opening. Tech needs this! 🌍 #CulturalAwareness",
-      "username": "GlobalTech"
-    },
-    {
-      "author_id": "2232234567",
-      "created_at": "Thu Feb 22 17:20:15 +0000 2025",
-      "id": "1761020847561234664",
-      "text": "iPhone 16e's language translation failed during a crucial business meeting. Embarrassing! 😤 #BusinessFail",
-      "username": "GlobalBusiness"
-    },
-    {
-      "author_id": "3343234567",
-      "created_at": "Thu Feb 22 17:25:10 +0000 2025",
-      "id": "1761021847561234665",
-      "text": "Apple Intelligence's marine life monitoring system is helping save our coral reefs! 🐠 #OceanConservation",
-      "username": "MarineBiologist"
-    }
-  ]
-}
+[
+  {
+    "id": "a92f3b1c",
+    "text": "Apple is set to open its first store in downtown Detroit, enhancing its presence in Michigan."
+  },
+  {
+    "id": "f83d7e4a",
+    "text": "President Trump announces that Apple plans to shift manufacturing from Mexico to the U.S. Details remain unclear."
+  },
+  {
+    "id": "c27a9d6e",
+    "text": "Apple removes its advanced end-to-end encrypted security feature for cloud data in the UK after government demands for access."
+  },
+  {
+    "id": "b19e5f3d",
+    "text": "Goldman Sachs raises Apple's stock price target to $294, reflecting confidence in the company's growth prospects."
+  },
+  {
+    "id": "d72a4c5b",
+    "text": "Apple News+ subscribers will soon access 'News+ Food,' featuring thousands of recipes from top publishers. Launching in April with iOS 18.4."
+  },
+  {
+    "id": "e85f2b7d",
+    "text": "Apple TV+ app is now available on Android devices, potentially opening a significant revenue stream."
+  },
+  {
+    "id": "a61c8f2e",
+    "text": "Apple's new iMac with the M4 chip offers significant performance boosts, especially in AI capabilities and gaming. Available in seven colors."
+  },
+  {
+    "id": "f49b2d7c",
+    "text": "Analysts predict a strong holiday season for Apple, with an estimated 240 million iPhones sold in fiscal 2025. A supercycle of growth is anticipated."
+  },
+  {
+    "id": "c38a5d1f",
+    "text": "Apple faces a class-action lawsuit alleging illegal monopolization of the smartphone market."
+  },
+  {
+    "id": "b72d9e3a",
+    "text": "Reports suggest Apple is in talks with OpenAI to integrate ChatGPT into iOS 19. A major shift in AI strategy."
+  },
+  {
+    "id": "d24e9a7b",
+    "text": "Apple's rumored foldable iPhone might be delayed until 2026 due to production issues."
+  },
+  {
+    "id": "e94f3c2a",
+    "text": "MacBook Pro with M3 Max outperforms high-end Windows laptops in recent benchmarks. Apple silicon continues to dominate."
+  },
+  {
+    "id": "a52d8e7c",
+    "text": "Apple Pay Later officially launches in the U.S., allowing users to split purchases into four payments with no interest."
+  },
+  {
+    "id": "c68b2d5f",
+    "text": "Reports indicate Apple is working on a subscription model for iPhones, allowing users to pay monthly for the latest models."
+  },
+  {
+    "id": "b74e8d2c",
+    "text": "Apple's self-driving car project reportedly facing major setbacks. Timeline for launch pushed back again."
+  },
+  {
+    "id": "e29f5c8d",
+    "text": "Developers criticize Apple for its tight control over the App Store and high commission fees. Calls for regulation grow louder."
+  },
+  {
+    "id": "f91a2d7b",
+    "text": "Apple partners with TSMC to develop 2nm chips, promising even greater efficiency and performance for future devices."
+  },
+  {
+    "id": "c34e8a9d",
+    "text": "Apple's AirPods Pro 3 might feature built-in health sensors for tracking temperature and heart rate."
+  },
+  {
+    "id": "b12d5e8c",
+    "text": "Rumors suggest Apple is planning a major redesign for the iPad Pro with OLED displays in 2025."
+  },
+  {
+    "id": "d92f3b1a",
+    "text": "iOS 18 beta reveals a new Live Translate feature for FaceTime, allowing real-time conversation translation."
+  },
+  {
+    "id": "a61f2d3e",
+    "text": "Apple Music Classical now includes exclusive recordings from top orchestras worldwide."
+  },
+  {
+    "id": "e48b9c7d",
+    "text": "Apple faces backlash after removing third-party game emulators from the App Store."
+  },
+  {
+    "id": "f82a3d4c",
+    "text": "Apple Watch Ultra 3 rumored to have a microLED display for improved brightness and battery life."
+  },
+  {
+    "id": "b39e5d7a",
+    "text": "Apple expands iPhone repair program to include more third-party repair shops."
+  },
+  {
+    "id": "c48a7d9f",
+    "text": "iPadOS 18 could bring macOS-like multitasking features to iPads, further blurring the line between tablets and laptops."
+  },
+  {
+    "id": "d75e2c9b",
+    "text": "Apple CEO Tim Cook says AI will be a major focus for the company's future product lineup."
+  },
+  {
+    "id": "e63b9d4c",
+    "text": "Apple files a patent for an under-display Face ID system, removing the notch in future iPhones."
+  },
+  {
+    "id": "a95e2d4b",
+    "text": "Apple is developing its own in-house 5G modem to reduce reliance on Qualcomm. Expected launch by 2026."
+  },
+  {
+    "id": "f74b3d9a",
+    "text": "Apple Vision Pro pre-orders exceed expectations, signaling strong interest in spatial computing."
+  },
+  {
+    "id": "c21e7d5b",
+    "text": "Apple reportedly exploring satellite-based emergency communication for iPhones."
+  },
+  {
+    "id": "b47d8e2a",
+    "text": "Mac users frustrated as Apple phases out support for Intel-based Macs in the latest macOS update."
+  },
+  {
+    "id": "d82f3c7a",
+    "text": "Apple Pay expands to more countries, increasing its global market share in digital payments."
+  },
+  {
+    "id": "e19d5a3b",
+    "text": "Apple's Swift programming language continues to grow in popularity among developers."
+  },
+  {
+    "id": "f65a3d9c",
+    "text": "Apple introduces AI-generated playlists in Apple Music, competing with Spotify's AI DJ."
+  },
+  {
+    "id": "c38d5b7a",
+    "text": "Apple's latest MacBook Air models may feature a MagSafe-like charging port for added convenience."
+  },
+  {
+    "id": "a92f3b1c",
+    "text": "Apple just dropped the iPhone 16e—$599 with AI features! Budget-friendly power incoming."
+  },
+  {
+    "id": "b47e9d2f",
+    "text": "Tim Cook teases a manufacturing shift from Mexico to the US. Big move for Apple!"
+  },
+  {
+    "id": "c81k4m9p",
+    "text": "The iPhone 16e’s 26-hour battery life is wild. Outdoes even the iPhone 16!"
+  },
+  {
+    "id": "d39x7v5q",
+    "text": "Apple pulls Advanced Data Protection in the UK. Government pressure wins this round."
+  },
+  {
+    "id": "e62h8n0r",
+    "text": "New MacBook Air with M4 chip dropping by March? Count me in!"
+  },
+  {
+    "id": "f15j3t9s",
+    "text": "Apple Intelligence hits Vision Pro in April. Spatial computing just got smarter."
+  },
+  {
+    "id": "g78p2m4u",
+    "text": "iPhone 16e pre-orders start today! Who’s grabbing this AI-powered steal?"
+  },
+  {
+    "id": "h94q1k6v",
+    "text": "Apple News+ Food coming in April—recipes galore for subscribers!"
+  },
+  {
+    "id": "i30r5x8w",
+    "text": "Alibaba partnership could boost Apple’s AI game in China. Stock’s looking good!"
+  },
+  {
+    "id": "j67t9n2y",
+    "text": "No more small iPhones? iPhone 16e sticks to 6.1 inches. RIP tiny screens."
+  },
+  {
+    "id": "k12u4p5z",
+    "text": "Apple’s first in-house 5G modem debuts with iPhone 16e. Future-proof vibes!"
+  },
+  {
+    "id": "l89v3m7a",
+    "text": "UK iCloud users lose end-to-end encryption. Apple caves to government demands."
+  },
+  {
+    "id": "m45w2k9b",
+    "text": "iPhone 16e replaces the SE—more power, same wallet-friendly appeal."
+  },
+  {
+    "id": "n03x1t4c",
+    "text": "Apple Vision Pro gets a big update in April with Apple Intelligence. Excited!"
+  },
+  {
+    "id": "o76y9p8d",
+    "text": "New HomePad rumors heat up—Apple’s smart home push is coming!"
+  },
+  {
+    "id": "p29z5m3e",
+    "text": "iPhone 16 prices drop as 16e launches. Time to upgrade?"
+  },
+  {
+    "id": "q81a4k7f",
+    "text": "Apple’s A18 chip in the iPhone 16e is a game-changer for the mid-range."
+  },
+  {
+    "id": "r54b3t9g",
+    "text": "No (PRODUCT)RED for iPhone 16e? Apple’s charity color is fading out."
+  },
+  {
+    "id": "s07c2p1h",
+    "text": "Apple teams up with Alibaba for AI in China. Smart move for iPhone sales!"
+  },
+  {
+    "id": "t63d8m5i",
+    "text": "iPad Air with M4 chip rumored for spring. Apple’s tablet lineup is heating up!"
+  },
+  {
+    "id": "u19e7k3j",
+    "text": "Apple’s iPhone 16e hits stores Feb 28. Who’s lining up?"
+  },
+  {
+    "id": "v82f6t9k",
+    "text": "Siri gets ChatGPT integration with iPhone 16e. AI just got personal!"
+  },
+  {
+    "id": "w35g4p2l",
+    "text": "Apple scraps encryption feature in Britain. Privacy takes a hit."
+  },
+  {
+    "id": "x98h3m7n",
+    "text": "New iPhone 16e rocks a 48MP camera. Budget shooters rejoice!"
+  },
+  {
+    "id": "y41i2k5o",
+    "text": "Apple’s manufacturing pivot to the US could dodge China tariffs."
+  },
+  {
+    "id": "z07j9t3p",
+    "text": "HomePod mini 2 on the horizon? Apple’s spring lineup looks stacked!"
+  },
+  {
+    "id": "a63k8p1q",
+    "text": "iPhone 16e’s Ceramic Shield is tough as nails. Durability win!"
+  },
+  {
+    "id": "b19l7m4r",
+    "text": "Apple News+ Food feed sounds delicious—coming with iOS 18.4!"
+  },
+  {
+    "id": "c82m6t9s",
+    "text": "Trump says Apple’s moving plants to the US. Big if true!"
+  },
+  {
+    "id": "d45n5k3t",
+    "text": "iPhone 16e brings Apple Intelligence to the masses. AI for all!"
+  },
+  {
+    "id": "e08p4m7u",
+    "text": "Apple’s Vision Pro app on iPhone is a game-changer for spatial fans."
+  },
+  {
+    "id": "f71q3t2v",
+    "text": "New iPad with A17 Pro chip rumored. Apple’s not slowing down!"
+  },
+  {
+    "id": "g34r2k9w",
+    "text": "iPhone 16e’s USB-C upgrade is long overdue. Welcome to 2025!"
+  },
+  {
+    "id": "h97s1p5x",
+    "text": "Apple stock jumps 6% after Alibaba AI deal. Investors are hyped!"
+  },
+  {
+    "id": "i50t9m3y",
+    "text": "No backdoor in encryption, says Apple—except now in the UK."
+  },
+  {
+    "id": "j13u8k7z",
+    "text": "iPhone 16e’s black and white colors keep it sleek and simple."
+  },
+  {
+    "id": "k86v7t2a",
+    "text": "Apple’s first big 2025 launch is here with iPhone 16e. More to come!"
+  },
+  {
+    "id": "l49w6p9b",
+    "text": "Vision Pro reps tease a Friday announcement. What’s cooking?"
+  },
+  {
+    "id": "m02x5m3c",
+    "text": "iPhone 16e’s 2-in-1 camera system is a budget photography beast!"
+  },
+  {
+    "id": "n75y4k8d",
+    "text": "Apple’s smart home hub rumors swirl—HomePad could be epic!"
+  },
+  {
+    "id": "o38z3t1e",
+    "text": "iPhone 16e sales could boost Apple after a slow 2024 end."
+  },
+  {
+    "id": "p91a2p7f",
+    "text": "Apple Intelligence on a budget? iPhone 16e nails it!"
+  },
+  {
+    "id": "q64b1m5g",
+    "text": "New Magic Keyboard for iPad Air? Apple’s spring refresh is lit!"
+  },
+  {
+    "id": "r27c9t3h",
+    "text": "iPhone 16e’s Face ID is a step up from the old SE. Modern vibes!"
+  },
+  {
+    "id": "s80d8k9i",
+    "text": "Apple’s AI push in China with Alibaba could shake up the market."
+  },
+  {
+    "id": "t43e7p2j",
+    "text": "iOS 18.4 brings News+ Food—tens of thousands of recipes await!"
+  },
+  {
+    "id": "u06f6m5k",
+    "text": "Apple’s C1 modem in iPhone 16e is a 5G game-changer!"
+  },
+  {
+    "id": "v79g5t9l",
+    "text": "iPhone 16e proves Apple can do affordable without skimping."
+  },
+  {
+    "id": "w32h4k3m",
+    "text": "Apple’s UK encryption rollback sparks privacy debates."
+  },
+  {
+    "id": "x95i3p7n",
+    "text": "Five new Apple products rumored for spring—2025 is huge!"
+  },
+  {
+    "id": "y58j2m1o",
+    "text": "iPhone 16e’s launch has me hyped—AI and power for $599!"
+  }
+]

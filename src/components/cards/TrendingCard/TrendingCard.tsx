@@ -12,15 +12,17 @@ const cx = classNames.bind(styles)
 type Props = {}
 
 const TrendingCard = (props: Props) => {
-  const { data, isLoading, refetch } = useTranding()
+  const { data, isLoading, isFetching, refetch } = useTranding()
   const [animationKey, setAnimationKey] = useState(0)
 
   // Trigger animation on data changes
-  // useEffect(() => {
-  //   setAnimationKey((prev) => prev + 1)
-  // }, [data])
+  useEffect(() => {
+    setAnimationKey((prev) => prev + 1)
+  }, [data])
 
   const { themes } = data
+
+  console.log('themes', themes)
 
   const sortedData = data ? themes.sort((a, b) => b.count - a.count) : []
   const maxCount = Math.max(...sortedData.map((d) => d.count))
@@ -30,11 +32,11 @@ const TrendingCard = (props: Props) => {
       title="Trending"
       style={{ flex: 2 }}
       rightContent={
-        isLoading ? (
+        isLoading || isFetching ? (
           <div>Loading...</div>
         ) : (
           <div
-            // onClick={() => refetch()}
+            onClick={() => refetch()}
             style={{
               cursor: 'pointer',
               color: 'var(--primary-color)',
