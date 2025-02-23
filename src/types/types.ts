@@ -4,6 +4,7 @@ export interface Topic {
   id: string
   name: string
   postIds: string[]
+  postIds2: string[]
 }
 
 export interface TweetThemeAnalysis {
@@ -17,11 +18,9 @@ export interface TweetThemeAnalysis {
 
 export type Tweet = {
   id: string
-  text:string
+  text: string
 }
 
 export interface InitialTweets {
   tweets: Tweet[]
 }
-
-

@@ -22,6 +22,7 @@
 
 .bar-container {
   display: flex;
+  display: flex;
   align-items: center;
   width: 100%;
   gap: 12px;

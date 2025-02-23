@@ -26,6 +26,8 @@ const TrendingCard = ({ data, isLoading, isFetching, refetch }: Props) => {
     setAnimationKey((prev) => prev + 1)
   }, [data])
 
+  console.log()
+
   // Handle loading timer
   useEffect(() => {
     let interval: NodeJS.Timeout

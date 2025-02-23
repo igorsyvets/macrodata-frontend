@@ -11,6 +11,8 @@ type Props = {
   trendingTweets: Topic[]
 }
 
+type T = {}
+
 const MainNarrativeCard = ({ trendingTweets }: Props) => {
   const { data, isLoading, error } = useMainNarrative()
 
@@ -25,7 +27,7 @@ const MainNarrativeCard = ({ trendingTweets }: Props) => {
   const { summary, themes } = data
 
   const { summaryTitle } = data
-  const totalPosts = trendingTweets.themes.reduce((sum, theme) => sum + theme.count, 0)
+  const totalPosts = 0 //trendingTweets.reduce((sum, theme) => sum + theme.count, 0)
 
   return (
     <Card title="Main Narrative" style={{ flex: 1 }}>

@@ -19,9 +19,6 @@ function App() {
     refetch: tweetsRefetch,
   } = useTweets()
 
-  console.log(tweets)
-  console.log(tweets)
-
   return (
     <div className="App">
       <MainNavigation />
