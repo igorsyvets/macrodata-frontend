@@ -16,7 +16,7 @@ type Props = {
   refetch: () => void
 }
 
-const TrendingCard = (props: Props) => {
+const TrendingCard = ({ data, isLoading, isFetching, refetch }: Props) => {
   const [animationKey, setAnimationKey] = useState(0)
 
   // Trigger animation on data changes
