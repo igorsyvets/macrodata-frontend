@@ -1,6 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
 import { Topic } from '../types/types'
-import { MistralService, TweetThemeAnalysis } from '../services/mistral.service'
 import { useState } from 'react'
 import axios from 'axios'
 import tweetBase from '../data/TweetBase.json'
@@ -27,18 +26,42 @@ interface MistralChatResponse {
   }
 }
 
+interface TweetThemeAnalysis {
+  summary: string;
+  summaryTitle: string;
+   themes: {
+     name: string
+     count: number
+     id: number
+   }[]
+ }
+
 const baseURL = 'https://api.mistral.ai/v1'
 
 const useMainNarrative = () => {
   const request = useQuery<TweetThemeAnalysis>({
     queryKey: ['main-narrative'],
     queryFn: summarizeTweets,
+    refetchInterval: Infinity,
+    staleTime: Infinity,
   })
+
+  const placeholderData: TweetThemeAnalysis = {
+    summary:'Loading real-time data...',
+    summaryTitle: 'Loading real-time data...',
+    themes: [{
+      name: 'n/a',
+      count:1,
+      id: 1
+    }]
+  }
 
   return {
     ...request,
-    data: request.data ?? { themes: [] },
-  }
+    data: request.data ?? 
+    placeholderData,
+  
+}
 }
 
 export default useMainNarrative
@@ -83,13 +106,16 @@ const summarizeTweets = async () => {
     {
       role: 'user',
       content: `Analyze these tweets about Apple products and initiatives and identify the top 5 most common themes.
-                For each theme:
+                First, provide a concise summary and a title for it of the overall narrative and key insights.
+                Then ,for each theme:
                 1. Only include tweet IDs that directly discuss that specific theme
                 2. Each tweet should only be counted in one theme (the most relevant one)
                 3. Verify that the count matches the number of tweet IDs provided.
 
                 Return the response in this exact JSON forma do not include explanatory text:
                 {
+                    "summary": "A concise paragraph summarizing the overall narrative and key insights from all tweets",
+                    "summaryTitle": "A concise title summarizing the overall narrative and key insights from all tweets",
                     "themes": [
                         {
                             "name": "Theme name here",
