@@ -4,7 +4,6 @@ export interface Topic {
   id: string
   name: string
   postIds: string[]
-  postIds2: string[]
 }
 
 export interface TweetThemeAnalysis {
