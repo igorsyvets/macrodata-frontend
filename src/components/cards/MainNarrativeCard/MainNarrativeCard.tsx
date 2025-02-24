@@ -2,40 +2,25 @@ import React from 'react'
 import css from './MainNarrativeCard.module.css'
 import classNames from 'classnames/bind'
 import Card from '../Card/Card'
-import { Topic, TweetThemeAnalysis } from '../../../types/types'
-import useMainNarrative from '../../../hooks/useMainNarrative'
+import { DateTime } from 'luxon'
 
 const cx = classNames.bind(css)
 
 type Props = {
-  trendingTweets: Topic[]
+  title: string
+  summary: string
 }
 
-type T = {}
-
-const MainNarrativeCard = ({ trendingTweets }: Props) => {
-  const { data, isLoading, error } = useMainNarrative()
-
-  if (isLoading || !data || !data.themes) {
-    return (
-      <Card title="Main Narrative" style={{ flex: 1 }}>
-        <div className={cx('content')}>Loading...</div>
-      </Card>
-    )
-  }
-
-  const { summary, themes } = data
-
-  const { summaryTitle } = data
-  const totalPosts = 0 //trendingTweets.reduce((sum, theme) => sum + theme.count, 0)
+const MainNarrativeCard = ({ title, summary }: Props) => {
+  const todayDate = DateTime.now().toFormat('MMMM dd, yyyy')
 
   return (
     <Card title="Main Narrative" style={{ flex: 1 }}>
       <div className={cx('content')}>
         <div className={cx('section')}>
-          <div className={cx('theme')}>{summaryTitle}</div>
+          <div className={cx('theme')}>{title}</div>
         </div>
-        <div className={cx('stats')}>{totalPosts} posts</div>
+        <div className={cx('stats')}>{todayDate}</div>
         <div className={cx('section')}>
           <div className={cx('section-content')}>{summary}</div>
         </div>

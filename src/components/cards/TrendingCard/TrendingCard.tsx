@@ -1,22 +1,22 @@
 import React, { act, useEffect, useState } from 'react'
 import Card from '../Card/Card'
 import TweetGetter from '../../TweetGetter/TweetGetter'
-import { Topic, TweetThemeAnalysis } from '../../../types/types'
+import { Topic, Tweet } from '../../../types/types'
 import classNames from 'classnames/bind'
 import styles from './TrendingCard.module.css'
 import { RefreshCcw } from 'react-feather'
-import sampleTweets from '../../../data/sample tweets.json'
+import useTweets from '../../../hooks/useTweets'
 
 const cx = classNames.bind(styles)
 
 type Props = {
   data: Topic[]
-  isLoading: boolean
-  isFetching: boolean
+  tweets: Tweet[]
+  isLoading?: boolean
   refetch: () => void
 }
 
-const TrendingCard = ({ data, isLoading, isFetching, refetch }: Props) => {
+const TrendingCard = ({ data, tweets, isLoading, refetch }: Props) => {
   const [animationKey, setAnimationKey] = useState(0)
   const [activeTheme, setActiveTheme] = useState<string | null>(null)
   const [loadingTime, setLoadingTime] = useState(0)
@@ -26,12 +26,10 @@ const TrendingCard = ({ data, isLoading, isFetching, refetch }: Props) => {
     setAnimationKey((prev) => prev + 1)
   }, [data])
 
-  console.log()
-
   // Handle loading timer
   useEffect(() => {
     let interval: NodeJS.Timeout
-    if (isLoading || isFetching) {
+    if (isLoading) {
       setLoadingTime(0)
       interval = setInterval(() => {
         setLoadingTime((prev) => prev + 1)
@@ -40,7 +38,7 @@ const TrendingCard = ({ data, isLoading, isFetching, refetch }: Props) => {
     return () => {
       if (interval) clearInterval(interval)
     }
-  }, [isLoading, isFetching])
+  }, [isLoading])
 
   const formatLoadingTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60)
@@ -55,21 +53,18 @@ const TrendingCard = ({ data, isLoading, isFetching, refetch }: Props) => {
 
   const totalPosts = themes.reduce((sum, theme) => sum + theme.postIds.length, 0)
 
-  const getTweetsByTheme = (themeId: string): { id: string; text: string }[] => {
+  const getTweetsByTheme = (themeId: string) => {
     const tweetIDs = themes.find((t) => t.id === themeId)?.postIds
     if (!tweetIDs) return []
-    const tweets = tweetIDs
+    const filteredTweets = tweetIDs
       .map((tweetID) => {
-        const tweet = sampleTweets.find((t) => t.id === tweetID)
+        const tweet = tweets.find((t) => t.id === tweetID)
         if (!tweet) console.error('tweet not found! boo! bad ai!', tweetID)
         return tweet
       })
-      .filter((t) => !!t) as {
-      id: string
-      text: string
-    }[]
-    console.log('tweets', tweets)
-    return tweets
+      .filter(Boolean) as Tweet[]
+
+    return filteredTweets
   }
 
   return (
@@ -77,7 +72,7 @@ const TrendingCard = ({ data, isLoading, isFetching, refetch }: Props) => {
       title={`Trending (${totalPosts} posts)`}
       style={{ flex: 2 }}
       rightContent={
-        isLoading || isFetching ? (
+        isLoading ? (
           <div>Loading... ({formatLoadingTime(loadingTime)})</div>
         ) : (
           <div
@@ -153,13 +148,25 @@ const TrendingCard = ({ data, isLoading, isFetching, refetch }: Props) => {
             {getTweetsByTheme(activeTheme).map((tweet) => (
               <div
                 style={{
-                  border: '1px solid #ccc',
+                  border: '1px solid rgba(255,255,255,0.2)',
                   borderRadius: '4px',
                   padding: '8px',
                   width: '200px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '8px',
                 }}
+                key={tweet.id}
               >
-                {tweet.text}
+                <div
+                  style={{
+                    fontSize: 12,
+                    fontWeight: 600,
+                  }}
+                >
+                  {tweet.username}
+                </div>
+                <div>{tweet.text}</div>
               </div>
             ))}
           </div>

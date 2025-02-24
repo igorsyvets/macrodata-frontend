@@ -4,10 +4,13 @@ import classNames from 'classnames/bind'
 
 const cx = classNames.bind(css)
 
-type Props = {}
+type Props = {
+  currentTopic: string
+  onCurrentTopicChange: (topic: string) => void
+}
 
-const SecondaryNavigation = (props: Props) => {
-  return <div className={cx('header')}>Apple Inc</div>
+const SecondaryNavigation = ({ currentTopic }: Props) => {
+  return <div className={cx('header')}>{currentTopic}</div>
 }
 
 export default SecondaryNavigation

@@ -9,23 +9,39 @@ import MistralButton from './components/MistralSummary/MistralButton'
 import useTranding from './hooks/useTrending'
 import sampleTweets from './data/sample tweets.json'
 import useTweets from './hooks/useTweets'
+import { useState } from 'react'
 
 function App() {
-  const { data, isLoading, isFetching, refetch } = useTranding({ posts: sampleTweets })
+  const [currentTopic, setCurrentTopic] = useState('Apple')
+
   const {
     data: tweets,
     isLoading: tweetsLoading,
     isFetching: tweetsFetching,
     refetch: tweetsRefetch,
-  } = useTweets()
+    dataUpdatedAt,
+  } = useTweets({ topic: currentTopic })
+
+  const {
+    data: trendingData,
+    isLoading: trendsLoading,
+    isFetching,
+    refetch,
+  } = useTranding({ posts: tweets, dataUpdatedAt })
 
   return (
     <div className="App">
-      <MainNavigation />
-      <SecondaryNavigation />
+      <MainNavigation isLoading={tweetsLoading || trendsLoading} />
+      <SecondaryNavigation
+        currentTopic={currentTopic}
+        onCurrentTopicChange={(topic) => setCurrentTopic(topic)}
+      />
       <main>
-        <MainNarrativeCard trendingTweets={data} />
-        <TrendingCard data={data} isLoading={isLoading} isFetching={isFetching} refetch={refetch} />
+        <MainNarrativeCard
+          summary={trendingData.trending_narratives.summary}
+          title={trendingData.trending_narratives.title}
+        />
+        <TrendingCard tweets={tweets} data={trendingData.trending_topics} refetch={refetch} />
       </main>
     </div>
   )

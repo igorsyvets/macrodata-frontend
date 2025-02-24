@@ -1,8 +1,9 @@
 import { useQuery } from '@tanstack/react-query'
-import { Topic, TweetThemeAnalysis } from '../types/types'
+import { Topic, Tweet } from '../types/types'
 import { useState } from 'react'
 import axios from 'axios'
 import sampleTweets from '../data/sample tweets.json'
+import makePerplexityRequest from '../services/perplexity'
 
 interface MistralChatMessage {
   role: 'user' | 'assistant' | 'system'
@@ -29,28 +30,56 @@ interface MistralChatResponse {
 const baseURL = 'https://api.mistral.ai/v1'
 
 type Props = {
-  posts: {
-    id: string
-    text: string
-  }[]
+  posts: Tweet[]
+  dataUpdatedAt: number
 }
 
-const useTranding = ({ posts }: Props) => {
-  const request = useQuery<Topic[]>({
-    queryKey: ['trending'],
-    queryFn: async () => {
-      const response = await analyzeTopics({ posts, num_topics: 10, custom_stop_words: ['apple'] })
-      return response
+interface TrendingAnalysis {
+  trending_narratives: {
+    title: string
+    summary: string
+  }
+  trending_topics: Topic[]
+}
+
+const useTranding = ({ posts, dataUpdatedAt }: Props) => {
+  const emptyData: TrendingAnalysis = {
+    trending_narratives: {
+      title: '',
+      summary: '',
     },
+    trending_topics: [],
+  }
+
+  const request = useQuery({
+    queryKey: ['trending', dataUpdatedAt],
+    queryFn: async () => {
+      console.log('fetching trending topics')
+      const response = await analyzeTopics({
+        posts,
+        num_topics: 10,
+        custom_stop_words: ['apple'],
+      })
+
+      const processedResponse: TrendingAnalysis = {
+        ...response,
+        trending_topics: response.trending_topics.filter((topic) => topic.name !== 'other'),
+      }
+
+      console.log('processedResponse', processedResponse)
+
+      return processedResponse
+    },
+    enabled: posts.length > 0,
+    placeholderData: emptyData,
     refetchInterval: Infinity,
     staleTime: Infinity,
+    retry: false,
   })
-
-  let data
 
   return {
     ...request,
-    data: request.data ?? [],
+    data: request.data || emptyData,
   }
 }
 
@@ -82,35 +111,6 @@ const chat = async (
     if (axios.isAxiosError(error)) {
       throw new Error(`Mistral API Error: ${error.response?.data?.error?.message || error.message}`)
     }
-    throw error
-  }
-}
-
-const summarizeTweets = async () => {
-  console.log('summarizing tweets', sampleTweets.length)
-  const messages: MistralChatMessage[] = [
-    // {
-    //   role: 'system',
-    //   content:
-    //     'You are an expert at analyzing social media sentiment and identifying common themes in tweets. When grouping tweets by theme, ensure each tweet ID is only included in the most relevant theme. Be precise in matching tweet content to themes.',
-    // },
-    {
-      role: 'user',
-      content: promptV3,
-    },
-  ]
-
-  try {
-    const response = await chat(messages, 'mistral-medium')
-    try {
-      const analysis = JSON.parse(response) as TweetThemeAnalysis
-      return analysis
-    } catch (error) {
-      console.error('Failed to parse JSON response:', response)
-      throw new Error('Failed to parse theme analysis response')
-    }
-  } catch (error) {
-    console.error('Mistral API error:', error)
     throw error
   }
 }
@@ -312,9 +312,9 @@ interface AnalyzeRequest {
 
 const API_BASE_URL = 'http://localhost:8000'
 
-export const analyzeTopics = async (data: AnalyzeRequest): Promise<Topic[]> => {
+export const analyzeTopics = async (data: AnalyzeRequest): Promise<TrendingAnalysis> => {
   try {
-    const response = await axios.post<Topic[]>(`${API_BASE_URL}/analyze`, data, {
+    const response = await axios.post<TrendingAnalysis>(`${API_BASE_URL}/analyze`, data, {
       headers: {
         'Content-Type': 'application/json',
       },
@@ -327,3 +327,27 @@ export const analyzeTopics = async (data: AnalyzeRequest): Promise<Topic[]> => {
     throw error
   }
 }
+
+const generateTweetsPrompt = ` 
+                Search and analyze current trending narratives about Apple Inc. and identify the top 10 most discussed themes. 
+                First, provide a concise summary and title of the overall narrative and key insights from your findings.
+                Then, for each theme:
+                1. Theme description should be as specific as possible
+                2. Focus on reliable and recent sources
+
+                Return the response in this exact JSON format:
+                <response-format>
+                [{
+                  "id": string
+                  "name": string
+                }]
+                </response-format>
+                Do not include anything outside of the JSON response
+
+                Requirements:
+                - Include exactly 10 themes
+                - Sort by relevance and discussion volume
+                - Focus on current discussions and developments
+                - Ensure themes are distinct and well-supported
+                - Verify information from multiple sources
+`

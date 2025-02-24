@@ -26,7 +26,8 @@
 }
 
 .section-content {
-  font-size: 12px;
+  font-size: 14px;
+  line-height: 24px;
   display: flex;
   flex-direction: column;
   gap: 12px;
