@@ -27,20 +27,27 @@ interface MistralChatResponse {
 }
 
 const useTweets = ({ topic }: { topic: string }) => {
+  const useRealData = true
+
   const request = useQuery<Tweet[]>({
     queryKey: ['tweets', topic],
     queryFn: async () => {
       console.log('fetching tweets')
-      const response = await makePerplexityRequest(getTweetsPropt({ topic, amount: 60 }))
-      const parsedResponse = JSON.parse(response) as string[]
-      const processedTweets = processTweets(parsedResponse)
-      console.log('fetched tweets', processedTweets)
-      return processedTweets as Tweet[]
+      if (useRealData) {
+        const response = await makePerplexityRequest(getTweetsPropt({ topic, amount: 60 }))
+        const parsedResponse = JSON.parse(response) as string[]
+        const processedTweets = processTweets(parsedResponse)
+        console.log('fetched tweets', processedTweets)
+        return processedTweets as Tweet[]
+      } else {
+        return perplexityTweets as Tweet[]
+      }
     },
     //placeholderData: perplexityTweets,
     refetchInterval: Infinity,
     staleTime: Infinity,
     retry: false,
+    enabled: !!topic,
   })
 
   return {

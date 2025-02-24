@@ -19,6 +19,7 @@
     "feather-icons": "^4.29.2",
     "luxon": "^3.5.0",
     "react": "^19.0.0",
+    "react-audio-visualize": "^1.2.0",
     "react-dom": "^19.0.0",
     "react-feather": "^2.0.10",
     "react-scripts": "5.0.1",

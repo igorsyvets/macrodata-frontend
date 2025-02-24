@@ -75,7 +75,7 @@
   justify-content: flex-start;
   align-items: center;
   gap: 2px;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .ticker-item {
@@ -134,4 +134,29 @@
   border-radius: 50%;
   background-color: var(--color-main);
   animation: pulse 1s ease-in-out infinite;
+}
+
+.call-to-action-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.call-to-action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  height: 80%;
+  font-family: 'IBM Plex Mono', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  width: 200px;
+  height: 80%;
+  background-color: var(--color-main);
+  border: none;
+  color: black;
 }

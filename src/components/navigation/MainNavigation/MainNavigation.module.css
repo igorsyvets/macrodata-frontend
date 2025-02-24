@@ -2,7 +2,6 @@
   display: flex;
   height: 40px;
   color: white;
-  font-family: 'Orbitron', sans-serif;
   letter-spacing: 1px;
   font-size: 24px;
   padding: 0 8px;
@@ -12,6 +11,7 @@
 }
 
 .logo {
+  font-family: 'Orbitron', sans-serif;
   display: flex;
   align-items: baseline;
   gap: 4px;

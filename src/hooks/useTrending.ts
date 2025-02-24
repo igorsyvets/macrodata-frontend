@@ -38,6 +38,7 @@ interface TrendingAnalysis {
   trending_narratives: {
     title: string
     summary: string
+    report_summary: string
   }
   trending_topics: Topic[]
 }
@@ -47,6 +48,7 @@ const useTrending = ({ posts, currentTopic }: Props) => {
     trending_narratives: {
       title: '',
       summary: '',
+      report_summary: '',
     },
     trending_topics: [],
   }
@@ -67,14 +69,14 @@ const useTrending = ({ posts, currentTopic }: Props) => {
         ...response,
         trending_topics: response.trending_topics.filter((topic) => topic.name !== 'other'),
         trending_narratives: {
+          ...response.trending_narratives,
           summary: narrativeSummary,
-          title: response.trending_narratives.title,
         },
       }
 
       return processedResponse
     },
-    enabled: posts.length > 0,
+    enabled: posts.length > 0 && !!currentTopic,
     placeholderData: emptyData,
     refetchInterval: Infinity,
     staleTime: Infinity,
@@ -88,36 +90,6 @@ const useTrending = ({ posts, currentTopic }: Props) => {
 }
 
 export default useTrending
-
-const chat = async (
-  messages: MistralChatMessage[],
-  model: string = 'mistral-tiny'
-): Promise<string> => {
-  try {
-    const response = await axios.post<MistralChatResponse>(
-      `${baseURL}/chat/completions`,
-      {
-        model,
-        messages,
-        max_tokens: 2000,
-        temperature: 0.3,
-      },
-      {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${process.env.REACT_APP_MISTRAL_API_KEY}`,
-        },
-      }
-    )
-
-    return response.data.choices[0].message.content
-  } catch (error: any) {
-    if (axios.isAxiosError(error)) {
-      throw new Error(`Mistral API Error: ${error.response?.data?.error?.message || error.message}`)
-    }
-    throw error
-  }
-}
 
 // const sampleData: Topic[] = [
 //   {
@@ -327,8 +299,8 @@ export const analyzeTopics = async (data: AnalyzeRequest): Promise<TrendingAnaly
       ...response.data,
       trending_topics: response.data.trending_topics.filter((topic) => topic.name !== 'other'),
       trending_narratives: {
+        ...response.data.trending_narratives,
         summary: response.data.trending_narratives.summary.replaceAll('<br>', '\n'),
-        title: response.data.trending_narratives.title,
       },
     }
 
