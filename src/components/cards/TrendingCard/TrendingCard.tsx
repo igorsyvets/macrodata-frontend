@@ -17,34 +17,13 @@ type Props = {
 }
 
 const TrendingCard = ({ data, tweets, isLoading, refetch }: Props) => {
-  const [animationKey, setAnimationKey] = useState(0)
   const [activeTheme, setActiveTheme] = useState<string | null>(null)
-  const [loadingTime, setLoadingTime] = useState(0)
-
   // Trigger animation on data changes
+
+  const [animationKey, setAnimationKey] = useState(0)
   useEffect(() => {
     setAnimationKey((prev) => prev + 1)
   }, [data])
-
-  // Handle loading timer
-  useEffect(() => {
-    let interval: NodeJS.Timeout
-    if (isLoading) {
-      setLoadingTime(0)
-      interval = setInterval(() => {
-        setLoadingTime((prev) => prev + 1)
-      }, 1000)
-    }
-    return () => {
-      if (interval) clearInterval(interval)
-    }
-  }, [isLoading])
-
-  const formatLoadingTime = (seconds: number) => {
-    const mins = Math.floor(seconds / 60)
-    const secs = seconds % 60
-    return `${mins}:${secs.toString().padStart(2, '0')}`
-  }
 
   const themes = data || []
 
@@ -69,26 +48,9 @@ const TrendingCard = ({ data, tweets, isLoading, refetch }: Props) => {
 
   return (
     <Card
-      title={`Trending (${totalPosts} posts)`}
+      title={`Trending ${!!totalPosts && !isLoading ? `(${totalPosts} posts)` : ''}`}
       style={{ flex: 2 }}
-      rightContent={
-        isLoading ? (
-          <div>Loading... ({formatLoadingTime(loadingTime)})</div>
-        ) : (
-          <div
-            onClick={() => refetch()}
-            style={{
-              cursor: 'pointer',
-              color: 'var(--primary-color)',
-              display: 'flex',
-              gap: '8px',
-            }}
-          >
-            <RefreshCcw size={16} />
-            Refresh
-          </div>
-        )
-      }
+      isLoading={isLoading}
     >
       {!activeTheme ? (
         <div className={cx('chart')}>

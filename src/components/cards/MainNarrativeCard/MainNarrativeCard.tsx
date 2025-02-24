@@ -9,20 +9,26 @@ const cx = classNames.bind(css)
 type Props = {
   title: string
   summary: string
+  isLoading?: boolean
 }
 
-const MainNarrativeCard = ({ title, summary }: Props) => {
+const MainNarrativeCard = ({ title, summary, isLoading }: Props) => {
   const todayDate = DateTime.now().toFormat('MMMM dd, yyyy')
+  const paragraphs = summary.split('\n')
 
   return (
-    <Card title="Main Narrative" style={{ flex: 1 }}>
+    <Card title="Main Narrative" style={{ flex: 1 }} isLoading={isLoading}>
       <div className={cx('content')}>
         <div className={cx('section')}>
           <div className={cx('theme')}>{title}</div>
         </div>
         <div className={cx('stats')}>{todayDate}</div>
         <div className={cx('section')}>
-          <div className={cx('section-content')}>{summary}</div>
+          <div className={cx('section-content')}>
+            {paragraphs.map((paragraph, index) => (
+              <p key={index}>{paragraph}</p>
+            ))}
+          </div>
         </div>
       </div>
     </Card>

@@ -31,7 +31,7 @@ const baseURL = 'https://api.mistral.ai/v1'
 
 type Props = {
   posts: Tweet[]
-  dataUpdatedAt: number
+  currentTopic: string
 }
 
 interface TrendingAnalysis {
@@ -42,7 +42,7 @@ interface TrendingAnalysis {
   trending_topics: Topic[]
 }
 
-const useTranding = ({ posts, dataUpdatedAt }: Props) => {
+const useTrending = ({ posts, currentTopic }: Props) => {
   const emptyData: TrendingAnalysis = {
     trending_narratives: {
       title: '',
@@ -52,21 +52,25 @@ const useTranding = ({ posts, dataUpdatedAt }: Props) => {
   }
 
   const request = useQuery({
-    queryKey: ['trending', dataUpdatedAt],
+    queryKey: ['trending', currentTopic],
     queryFn: async () => {
       console.log('fetching trending topics')
       const response = await analyzeTopics({
         posts,
         num_topics: 10,
-        custom_stop_words: ['apple'],
+        custom_stop_words: [currentTopic],
       })
+
+      const narrativeSummary = response.trending_narratives.summary.replace('<br>', '\n')
 
       const processedResponse: TrendingAnalysis = {
         ...response,
         trending_topics: response.trending_topics.filter((topic) => topic.name !== 'other'),
+        trending_narratives: {
+          summary: narrativeSummary,
+          title: response.trending_narratives.title,
+        },
       }
-
-      console.log('processedResponse', processedResponse)
 
       return processedResponse
     },
@@ -83,7 +87,7 @@ const useTranding = ({ posts, dataUpdatedAt }: Props) => {
   }
 }
 
-export default useTranding
+export default useTrending
 
 const chat = async (
   messages: MistralChatMessage[],
@@ -319,7 +323,16 @@ export const analyzeTopics = async (data: AnalyzeRequest): Promise<TrendingAnaly
         'Content-Type': 'application/json',
       },
     })
-    return response.data
+    const processedResponse: TrendingAnalysis = {
+      ...response.data,
+      trending_topics: response.data.trending_topics.filter((topic) => topic.name !== 'other'),
+      trending_narratives: {
+        summary: response.data.trending_narratives.summary.replaceAll('<br>', '\n'),
+        title: response.data.trending_narratives.title,
+      },
+    }
+
+    return processedResponse
   } catch (error) {
     if (axios.isAxiosError(error)) {
       throw new Error(`Analysis failed: ${error.response?.data?.detail || error.message}`)

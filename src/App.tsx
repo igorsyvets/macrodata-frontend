@@ -6,7 +6,7 @@ import MainNavigation from './components/navigation/MainNavigation/MainNavigatio
 import SecondaryNavigation from './components/navigation/SecondaryNavigation/SecondaryNavigation'
 import TweetGetter from './components/TweetGetter/TweetGetter'
 import MistralButton from './components/MistralSummary/MistralButton'
-import useTranding from './hooks/useTrending'
+import useTrending from './hooks/useTrending'
 import sampleTweets from './data/sample tweets.json'
 import useTweets from './hooks/useTweets'
 import { useState } from 'react'
@@ -27,21 +27,37 @@ function App() {
     isLoading: trendsLoading,
     isFetching,
     refetch,
-  } = useTranding({ posts: tweets, dataUpdatedAt })
+  } = useTrending({ posts: tweets, currentTopic })
+
+  const refetchAll = () => {
+    tweetsRefetch()
+    refetch()
+  }
+
+  console.log('currentTopic', currentTopic)
+
+  const isLoading = tweetsLoading || trendsLoading || tweetsFetching || isFetching
 
   return (
     <div className="App">
-      <MainNavigation isLoading={tweetsLoading || trendsLoading} />
+      <MainNavigation isLoading={isLoading} onRefresh={refetchAll} />
       <SecondaryNavigation
         currentTopic={currentTopic}
         onCurrentTopicChange={(topic) => setCurrentTopic(topic)}
+        tweets={tweets}
       />
       <main>
         <MainNarrativeCard
           summary={trendingData.trending_narratives.summary}
           title={trendingData.trending_narratives.title}
+          isLoading={isLoading}
         />
-        <TrendingCard tweets={tweets} data={trendingData.trending_topics} refetch={refetch} />
+        <TrendingCard
+          tweets={tweets}
+          data={trendingData.trending_topics}
+          refetch={refetch}
+          isLoading={isLoading}
+        />
       </main>
     </div>
   )

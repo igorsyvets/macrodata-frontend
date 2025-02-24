@@ -28,7 +28,7 @@ interface MistralChatResponse {
 
 const useTweets = ({ topic }: { topic: string }) => {
   const request = useQuery<Tweet[]>({
-    queryKey: ['tweets'],
+    queryKey: ['tweets', topic],
     queryFn: async () => {
       console.log('fetching tweets')
       const response = await makePerplexityRequest(getTweetsPropt({ topic, amount: 60 }))

@@ -1,10 +1,137 @@
 .header {
   display: flex;
-  padding: 32px 8px 8px;
   font-family: 'IBM Plex Mono', sans-serif;
   font-weight: 700;
   letter-spacing: 1px;
-  font-size: 24px;
+  font-size: 36px;
   justify-content: start;
   align-items: center;
+  height: 100%;
+  display: flex;
+}
+
+.header input {
+  font-family: 'IBM Plex Mono', sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 36px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid var(--color-main-border);
+  outline: none;
+  margin-right: 8px;
+  color: white;
+  width: 160px;
+  height: 100%;
+  position: relative;
+  top: 1px;
+}
+
+.header button {
+  font-family: 'IBM Plex Mono', sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 16px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  margin-left: 8px;
+  border: 2px solid var(--color-main-border);
+  color: white;
+  height: 80%;
+  width: 80px;
+}
+
+.header button:hover {
+  background-color: var(--color-main-border);
+}
+
+.ticker-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ticker {
+  overflow: hidden;
+  width: 100%;
+  height: 80%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 2px solid var(--color-main-border);
+  border-bottom: 2px solid var(--color-main-border);
+  box-sizing: border-box;
+}
+
+.ticker-content {
+  display: flex;
+  position: absolute;
+  white-space: nowrap;
+  will-change: transform;
+  animation: ticker var(--duration) linear infinite;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2px;
+  font-size: 14px;
+}
+
+.ticker-item {
+  padding: 0 20px;
+  flex-shrink: 0;
+  color: white;
+  display: flex;
+  gap: 8px;
+}
+
+.username {
+  font-weight: 700;
+  opacity: 0.3;
+}
+
+.username::after {
+  content: ':';
+}
+
+.tweet {
+  display: inline-block;
+  margin-right: 16px;
+}
+
+.separator {
+  margin: 0 8px;
+}
+
+@keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(var(--translate));
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-main);
+  animation: pulse 1s ease-in-out infinite;
 }
