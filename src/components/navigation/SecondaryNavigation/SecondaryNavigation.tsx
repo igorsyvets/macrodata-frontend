@@ -43,6 +43,12 @@ const SecondaryNavigation = ({
   }
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => setNewTopic(e.target.value)
 
+  const resetAnimation = (element: HTMLElement) => {
+    element.style.animation = 'none'
+    void element.offsetHeight // Force reflow with void operator
+    element.style.animation = ''
+  }
+
   useEffect(() => {
     if (!contentRef.current) return
 
@@ -55,19 +61,31 @@ const SecondaryNavigation = ({
       const duration = width / baseSpeed
       contentRef.current.style.setProperty('--translate', `-${width}px`)
       contentRef.current.style.setProperty('--duration', `${duration}s`)
+      resetAnimation(contentRef.current)
     }
 
-    // Initial measurement
-    updateWidth()
+    const intersectionObserver = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && contentRef.current) {
+          updateWidth()
+        }
+      },
+      { threshold: 0.1 }
+    )
 
-    // Setup resize observer
-    const observer = new ResizeObserver(updateWidth)
-    observer.observe(contentRef.current)
+    if (contentRef.current) {
+      intersectionObserver.observe(contentRef.current)
+      updateWidth()
+    }
+
+    const resizeObserver = new ResizeObserver(updateWidth)
+    if (contentRef.current) {
+      resizeObserver.observe(contentRef.current)
+    }
 
     return () => {
-      if (contentRef.current) {
-        observer.unobserve(contentRef.current)
-      }
+      intersectionObserver.disconnect()
+      resizeObserver.disconnect()
     }
   }, [tweets])
 
