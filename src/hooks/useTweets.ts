@@ -71,7 +71,7 @@ const getTweetsPropt = ({ topic, amount }: { topic: string; amount: number }) =>
   const prompt = ` 
 Analyze the most breaking, recent and trending news about ${topic}.
 
-1. Generate a series of casual, tweet-like messages reflecting the latest news and developments related to Apple.
+1. Generate a series of casual, tweet-like messages reflecting the latest news and developments related to ${topic}.
 2. Your tweets should vary in tone and sentiment, capturing excitement, skepticism, criticism, curiosity, and admiration.
 3. The messages should reflect the most recent trending topics and news about ${topic}. 
 4. It is crucial that he frequency of messages should reflect the frequency and trendiness of real news

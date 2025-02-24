@@ -100,10 +100,10 @@ function App() {
               value={initialTopic}
               onChange={(e) => setInitialTopic(e.target.value)}
               style={{
-                padding: '24px 0',
+                padding: '16px 0',
                 border: 'none',
                 background: 'transparent',
-                fontSize: '40px',
+                fontSize: '60px',
                 borderBottom: '4px solid var(--color-main-border)',
                 width: '100%',
                 outline: 'none', // Remove default focus outline
